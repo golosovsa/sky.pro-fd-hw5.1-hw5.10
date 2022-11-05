@@ -14,7 +14,7 @@ parserOptions:
 plugins:
   - react
 rules:
-  eact/jsx-filename-extension:
+  react/jsx-filename-extension:
     - 1
     - extensions:
       - .js
