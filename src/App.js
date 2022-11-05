@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.scss'
+
+import Navigation from './Navigation'
+import Main from './Main'
+import Logo from './Logo'
+import Menu from './Menu'
+import Search from './Search'
+import Filter from './Filter'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Main>
+        <Navigation logo={Logo()} menu={Menu()} />
+        <div className="centerblock__search search">
+          <Search placeholder="Поиск" />
+        </div>
+        <h2 className="centerblock__h2">Треки</h2>
+        <div className="centerblock__filter filter">
+          <Filter />
+        </div>
+      </Main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
