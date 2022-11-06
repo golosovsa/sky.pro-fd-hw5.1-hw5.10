@@ -15,3 +15,4 @@
 -   [x] Initial
 -   [x] Create react app
 -   [x] Setup eslint and prettier
+-   [x] Create react components from layout
