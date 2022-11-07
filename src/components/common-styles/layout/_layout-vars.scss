@@ -1,0 +1,15 @@
+@use "sass:math";
+
+$layout-width: 1920;
+$layout-height: 1080;
+$layout-aspect: math.div($layout-width, $layout-height);
+
+:root {
+    --layout-width: #{$layout-width};
+    --layout-height: #{$layout-height};
+    --layout-aspect: #{$layout-aspect};
+
+    // initial
+    --page-width: #{$layout-width};
+    --page-height: #{$layout-height};
+}

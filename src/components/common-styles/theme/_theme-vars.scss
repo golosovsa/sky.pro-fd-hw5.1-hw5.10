@@ -1,0 +1,26 @@
+
+
+$default: (
+    // start page section
+    start-page-background: rgba(0, 0, 0, 0.85),
+    start-page-dialog-background: #fff,
+    start-page-input-border: min(scale-height(1), scale-width(1)) solid #d0cece,
+    start-page-input-placeholder: #e1e1e1,
+    start-page-submit-background: #580ea2,
+    start-page-submit-text: #fff,
+    start-page-submit-hover-background: #3f007d,
+    start-page-submit-active-background: #271a58,
+    start-page-button-border: min(scale-height(1), scale-width(1)) solid #d0cece,
+    start-page-button-background: #fff,
+    start-page-button-text: #000,
+    start-page-button-hover-background: #f4f5f6,
+    start-page-button-active-background: #d9d9d9,
+
+    // main-page section
+    main-page-background: #181818,
+    main-page-navigation-background: #1C1C1C,
+    main-page-bar-background: #1C1C1C,
+    main-page-search-border: min(scale-height(1), scale-width(1)) solid #4E4E4E,
+    main-page-search-icon-background-image: url("./icons.svg#icon-search"),
+    
+);
