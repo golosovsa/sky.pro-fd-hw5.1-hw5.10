@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@function is-map($var) {
+    @return type-of($var) == 'map';
+}
+
+@function theme-to-var-list($theme) {
+    $result: ();
+
+    $keys: map.keys($theme);
+
+    @each $key in $keys {
+        $value: map.get($theme, $key);
+        
+        @if is-map($value) {
+            $value-keys: theme-to-var-list($value);
+            @each $value-key, $value-value in $value-keys {
+                $result: map.set($result, "#{$key}-#{$value-key}", $value-value);
+            }
+        } @else {
+            $result: map.set($result, $key, $value);
+        }
+    }
+
+    @return $result; 
+}

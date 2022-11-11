@@ -1,2 +1,11 @@
 @use "./theme/theme-vars";
 @use "./theme/theme-funcs";
+@use "./theme/theme-mixins";
+
+.theme {
+    @include theme-vars($theme-dark);
+
+    // &_light {
+    //     @include theme-vars($theme-light);
+    // }
+}

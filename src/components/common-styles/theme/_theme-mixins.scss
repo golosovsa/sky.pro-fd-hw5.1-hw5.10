@@ -1,0 +1,9 @@
+@use "sass:map";
+
+@mixin theme-vars($theme-name) {
+    $var-list: theme-to-var-list($theme-name);
+
+    @each $var, $value in $var-list {
+        #{"--#{$var}"}: $value;
+    }
+}
