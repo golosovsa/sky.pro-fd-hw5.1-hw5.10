@@ -1,0 +1,128 @@
+@use "sass:map";
+
+@function is-map($var) {
+    @return type-of($var) == 'map';
+}
+
+@function theme-to-var-list($theme) {
+    $result: ();
+
+    @if not is-map($theme) {
+        @return ();
+    }
+    
+    $keys: map.keys($theme);
+
+    @each $key in $keys {
+        $value: map.get($theme, $key);
+        
+        @if is-map($value) {
+            $value-keys: theme-to-var-list($value);
+            @each $value-key, $value-value in $value-keys {
+                $result: map.set($result, "#{$key}-#{$value-key}", $value-value);
+            }
+        } @else {
+            $result: map.set($result, $key, $value);
+        }
+    }
+
+    @return $result; 
+}
+
+@function get-default-theme() {
+    @return $default;
+}
+
+@function get-theme-node($page, $component: null, $effect: null) {
+    $theme: get-default-theme();
+    $theme-node: $theme;
+    $theme-node-path: "-";
+
+    @if map-has-key($map: $theme-node, $key: $page) {
+        $theme-node: map-get($map: $theme-node, $key: $page);
+        $theme-node-path: "#{$theme-node-path}-#{$page}";
+    }
+
+    @if $component and is-map($theme-node) and map-has-key($map: $theme-node, $key: $component) {
+        $theme-node: map-get($map: $theme-node, $key: $component);
+        $theme-node-path: "#{$theme-node-path}-#{$component}";
+    }
+
+    @if $effect and is-map($theme-node) and map-has-key($map: $theme-node, $key: $effect) {
+        $theme-node: map-get($map: $theme-node, $key: $effect);
+        $theme-node-path: "#{$theme-node-path}-#{$effect}";
+    }
+
+    $result: (
+        "path": $theme-node-path,
+        "node": $theme-node,
+    );
+
+    @return $result;
+}
+
+@function get-theme-vars($page, $component: null, $effect: null) {
+    $theme-node: get-theme-node($page, $component, $effect);
+    $theme-node-path: map-get($map: $theme-node, $key: "path");
+    $theme-node: map-get($map: $theme-node, $key: "node");
+
+    $result: ();
+    
+    @if map-has-key($map: $theme-node, $key: "background") {
+        $result: map.set($result, "background", var(#{$theme-node-path}-background));
+    }
+
+    @if map-has-key($map: $theme-node, $key: "color") {
+        $result: map.set($result, "color", var(#{$theme-node-path}-color));
+    }
+
+    @if map-has-key($map: $theme-node, $key: "border-color") {
+        $result: map.set($result, "border-color", var(#{$theme-node-path}-border-color));
+    }
+
+    @return $result;
+}
+
+@function get-theme-effect($page, $component, $effect) {
+    $theme-node: get-theme-node($page, $component);
+    $theme-node-path: map-get($map: $theme-node, $key: "path");
+    $theme-node: map-get($map: $theme-node, $key: "node");
+    $default-effects: get-default-theme();
+
+    $result: ();
+
+    @if map-has-key($map: $theme-node, $key: $effect) {
+        $result: (
+            "path": "#{$theme-node-path}-#{$effect}",
+            "node": map-get($map: $theme-node, $key: $effect),
+        );
+    } @else if map-has-key($map: $default-effects, $key: $effect) {
+        $result: (
+            "path": "--#{$effect}",
+            "node": map-get($map: $default-effects, $key: $effect),
+        );
+    }
+
+    @return $result;
+}
+
+@function get-theme-effects($page, $component, $effects: ("hover", "focus", "active", "link", "visited")) {
+    $theme-node: get-theme-node($page, $component);
+    $theme-node-path: map-get($map: $theme-node, $key: "path");
+    $theme-node: map-get($map: $theme-node, $key: "node");
+
+    $result: ();
+
+    @each $effect in $effects {
+        @if map-has-key($map: $theme-node, $key: $effect) {
+            $theme-effect: get-theme-effect($page, $component, $effect);
+            $result: map.set($result, $effect, $theme-effect);
+        }
+    }
+
+    @return $result;
+}
+
+@function get-theme-pseudo($page, $component, $pseudo: ("placeholder", )) {
+    @return get-theme-effects($page, $component, $pseudo);
+}

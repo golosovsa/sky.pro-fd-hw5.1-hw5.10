@@ -1,5 +1,4 @@
-
-@use "theme-pallete";
+@import "theme-pallet";
 
 /*
 all color values and states
@@ -95,10 +94,10 @@ $default: (
         "input": (
             "color": $black,
             "border-color": $grey-goose,
-        ),
 
-        "placeholder": (
-            "color": $lavender-pinocchio,
+            "placeholder": (
+                "color": $lavender-pinocchio,
+            ),
         ),
         
         "button": (
