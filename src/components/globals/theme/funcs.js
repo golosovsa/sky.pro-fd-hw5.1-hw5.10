@@ -1,4 +1,9 @@
-import DEFAULT from "./default";
+import {
+    DEFAULT,
+    COLOR_THEME_ATTRIBUTES,
+    EFFECT_THEME_ATTRIBUTES,
+    PSEUDO_THEME_ATTRIBUTES,
+} from "./default";
 
 function isNode(variable) {
     if (variable === null || variable === undefined) {
@@ -76,11 +81,77 @@ function getThemeNode(page, component = null, effect = null) {
     };
 }
 
-function getColorThemeVars(page, component = null, effect = null) {
-    const {path, node} = getThemeNode(page, component, effect)
-    const result = [];
+function getNodeVars(themeNode, properties, defaults = false) {
+    const { path, node } = themeNode;
+    const defaultNode = defaults ? getDefaultTheme() : {};
 
-    
+    return properties
+        .map((property) => {
+            if (property in node) {
+                return `${property}: var(${path}-${property})`;
+            }
+            if (property in defaultNode) {
+                return `${property}: var(--${property})`;
+            }
+            return "";
+        })
+        .filter((item) => item.length !== 0);
 }
 
-export { getCSSVarList, getColorThemeVars };
+function getThemeVar(page, attribute, component = null, effect = null) {
+    const themeNode = getThemeNode(page, component, effect);
+    const themeVar = getNodeVars(
+        themeNode,
+        Array.isArray(attribute) ? attribute : [attribute],
+        true
+    );
+
+    return themeVar;
+}
+
+function getColorThemeVars(page, component = null, effect = null) {
+    const themeNode = getThemeNode(page, component, effect);
+    const colorThemeVars = getNodeVars(themeNode, COLOR_THEME_ATTRIBUTES);
+
+    return colorThemeVars;
+}
+
+function getColorEffectThemeVars(page, component = null, effect = null, defaults = false) {
+    const themeNode = getThemeNode(page, component, effect);
+    const defaultNode = defaults ? getDefaultTheme() : {};
+    const result = {};
+
+    EFFECT_THEME_ATTRIBUTES.forEach(EFFECT => {
+        if (EFFECT in themeNode) {
+            result[EFFECT] = getNodeVars(themeNode[EFFECT], COLOR_THEME_ATTRIBUTES);
+        } else if (EFFECT in defaultNode) {
+            result[EFFECT] = getNodeVars(defaultNode[EFFECT], COLOR_THEME_ATTRIBUTES);
+        }
+    });
+
+    return result;
+}
+
+function getColorPseudoThemeVars(page, component = null, effect = null, defaults = false) {
+    const themeNode = getThemeNode(page, component, effect);
+    const defaultNode = defaults ? getDefaultTheme() : {};
+    const result = {};
+
+    PSEUDO_THEME_ATTRIBUTES.forEach(PSEUDO => {
+        if (PSEUDO in themeNode) {
+            result[PSEUDO] = getNodeVars(themeNode[PSEUDO], COLOR_THEME_ATTRIBUTES);
+        } else if (PSEUDO in defaultNode) {
+            result[PSEUDO] = getNodeVars(defaultNode[PSEUDO], COLOR_THEME_ATTRIBUTES);
+        }
+    });
+
+    return result;
+}
+
+export {
+    getCSSVarList,
+    getThemeVar,
+    getColorThemeVars,
+    getColorEffectThemeVars,
+    getColorPseudoThemeVars,
+};

@@ -47,6 +47,10 @@ import LOGIN from "./default/login";
 //     ...
 // }
 
+const COLOR_THEME_ATTRIBUTES = ["background", "color", "border-color"];
+const EFFECT_THEME_ATTRIBUTES = ["hover", "focus", "active", "link", "visited"];
+const PSEUDO_THEME_ATTRIBUTES = ["placeholder"];
+
 const DEFAULT = {
     background: PALLETTE.rangoonGreen,
     color: PALLETTE.white,
@@ -81,4 +85,9 @@ const DEFAULT = {
 
 DEFAULT.login = LOGIN;
 
-export default DEFAULT;
+export {
+    DEFAULT, 
+    COLOR_THEME_ATTRIBUTES,
+    EFFECT_THEME_ATTRIBUTES,
+    PSEUDO_THEME_ATTRIBUTES
+};

@@ -3,7 +3,7 @@ function calcWidth(width) {
 }
 
 function calcHeight(height) {
-    return `calc(${height} * var(--page-height) / var(--layout-height));`;
+    return `calc(${height} * var(--page-height) / var(--layout-height))`;
 }
 
 export {calcWidth, calcHeight};

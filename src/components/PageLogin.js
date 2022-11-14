@@ -1,5 +1,12 @@
-function PageLogin(props) {
-    return <h1>Page Login {props.extra || "null"}</h1>;
+import StyledPageLogin from "./PageLogin/styles";
+import Form from "./PageLogin/Form";
+
+function PageLogin() {
+    return (
+        <StyledPageLogin>
+            <Form/>
+        </StyledPageLogin>
+    );
 }
 
 export default PageLogin;

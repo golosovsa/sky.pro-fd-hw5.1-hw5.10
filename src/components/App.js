@@ -3,6 +3,7 @@ import {GlobalColorThemeDefault} from "./globals/theme";
 import GlobalReset from "./globals/reset";
 import GlobalFonts from "./globals/fonts";
 import GlobalLayout from "./globals/layout";
+import PageLogin from "./PageLogin";
 
 function App() {
     return (
@@ -11,7 +12,7 @@ function App() {
             <GlobalFonts/>
             <GlobalColorThemeDefault/>
             <GlobalLayout/>
-            <h1>ПРивет</h1>
+            <PageLogin/>
         </>
     );
 }
