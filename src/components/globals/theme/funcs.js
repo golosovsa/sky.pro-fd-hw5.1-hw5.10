@@ -122,12 +122,26 @@ function getColorEffectThemeVars(page, component = null, effect = null, defaults
     const result = {};
 
     EFFECT_THEME_ATTRIBUTES.forEach(EFFECT => {
-        if (EFFECT in themeNode) {
-            result[EFFECT] = getNodeVars(themeNode[EFFECT], COLOR_THEME_ATTRIBUTES);
+        if (EFFECT in themeNode.node) {
+            result[EFFECT] = getNodeVars(
+                {
+                    node: themeNode.node[EFFECT],
+                    path: `${themeNode.path}-${EFFECT}`,
+                },
+                COLOR_THEME_ATTRIBUTES,
+            );
         } else if (EFFECT in defaultNode) {
-            result[EFFECT] = getNodeVars(defaultNode[EFFECT], COLOR_THEME_ATTRIBUTES);
+            result[EFFECT] = getNodeVars(
+                {
+                    node: defaultNode[EFFECT],
+                    path: "-",
+                }, 
+                COLOR_THEME_ATTRIBUTES
+            );
         }
     });
+
+    
 
     return result;
 }
@@ -138,10 +152,23 @@ function getColorPseudoThemeVars(page, component = null, effect = null, defaults
     const result = {};
 
     PSEUDO_THEME_ATTRIBUTES.forEach(PSEUDO => {
-        if (PSEUDO in themeNode) {
-            result[PSEUDO] = getNodeVars(themeNode[PSEUDO], COLOR_THEME_ATTRIBUTES);
+        if (PSEUDO in themeNode.node) {
+            result[PSEUDO] = getNodeVars(
+                {
+                    node: themeNode.node[PSEUDO],
+                    path: `${themeNode.path}-${PSEUDO}`,
+                }, 
+                COLOR_THEME_ATTRIBUTES,
+            );
         } else if (PSEUDO in defaultNode) {
-            result[PSEUDO] = getNodeVars(defaultNode[PSEUDO], COLOR_THEME_ATTRIBUTES);
+            result[PSEUDO] = getNodeVars(
+                {
+                    node: defaultNode[PSEUDO],
+                    path: "",
+
+                }, 
+                COLOR_THEME_ATTRIBUTES,
+            );
         }
     });
 

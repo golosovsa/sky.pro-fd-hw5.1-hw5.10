@@ -19,7 +19,7 @@ function effectThemeMixin(page, component = null) {
 
             return `
             &:${effect} {
-                ${vars.join(";\n")}
+                ${vars.join(";\n")};
             }
         `;
         })
@@ -35,7 +35,7 @@ function pseudoThemeMixin(page, component = null) {
 
             return `
             &::${pseudo} {
-                ${vars.join(";\n")}
+                ${vars.join(";\n")};
             }
         `;
         })
@@ -47,9 +47,9 @@ function applyThemeMixin(page, component = null) {
 
     if (component) {
         result = `
-            ${result};
-            ${effectThemeMixin(page, component)};
-            ${pseudoThemeMixin(page, component)};
+            ${result}
+            ${effectThemeMixin(page, component)}
+            ${pseudoThemeMixin(page, component)}
         `;
     }
 

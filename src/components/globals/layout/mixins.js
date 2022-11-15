@@ -9,7 +9,7 @@ function layoutSizeMixin(width, height) {
 }
 
 function layoutTextMixin(fontSize, lineHeight, fontWeight) {
-    return textMixin(calcHeight(fontSize), calcHeight(lineHeight), calcHeight(fontWeight));
+    return textMixin(calcHeight(fontSize), calcHeight(lineHeight), fontWeight);
 }
 
 export {layoutSizeMixin, layoutTextMixin};

@@ -1,7 +1,7 @@
 import StyledLogo from "./Logo/styles";
 
-function Logo(props) {
-    return <StyledLogo {props.white}/>;
+function Logo({color = "black", }) {
+    return <StyledLogo color={{color}}/>;
 }
 
 export default Logo;

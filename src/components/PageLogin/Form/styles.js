@@ -9,7 +9,7 @@ const StyledForm = styled.form`
     ${layoutSizeMixin(366, 439)}
     ${flexMixin("column nowrap", "space-between", "center", "center")}
     padding: ${calcHeight(45)} ${calcWidth(44)};
-    border-radius: ${calcWidth(12)};
+    border-radius: min(${calcWidth(12)}, ${calcHeight(12)});
 `;
 
 export default StyledForm;

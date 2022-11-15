@@ -10,7 +10,7 @@ const StyledLogo = styled.div`
     background-position: center center;
     background-size: cover;
 
-    ${ props => props.white && css`
+    ${ props => (props.color === "white") && css`
         background-image: url(${logoImageWhite});
     `}
 `;
