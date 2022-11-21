@@ -12,7 +12,6 @@ function Form() {
                 <Input type="text" name="login" placeholder="Логин" />
                 <Input type="password" name="password" placeholder="Пароль" />
             
-            
                 <Submit>Войти</Submit>
                 <Button>Зарегестрироваться</Button>
             

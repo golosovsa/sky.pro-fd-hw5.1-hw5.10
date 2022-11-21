@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import logoImageBlack from "../../../img/logo-black.svg";
-import logoImageWhite from "../../../img/logo-white.svg";
+import logoImageBlack from "./logo-black.svg";
+import logoImageWhite from "./logo-white.svg";
 import { layoutSizeMixin } from "../../globals/layout/mixins";
 
 const StyledLogo = styled.div`
