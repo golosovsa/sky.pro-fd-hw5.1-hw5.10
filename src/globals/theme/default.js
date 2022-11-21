@@ -1,5 +1,6 @@
 import PALLETTE from "./pallette";
 import LOGIN from "./default/login";
+import MAIN from "./default/main";
 
 // all color values and states
 
@@ -84,6 +85,7 @@ const DEFAULT = {
 };
 
 DEFAULT.login = LOGIN;
+DEFAULT.main = MAIN;
 
 export {
     DEFAULT, 

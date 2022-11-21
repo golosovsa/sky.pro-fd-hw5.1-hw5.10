@@ -10,7 +10,6 @@ const LoginInput = styled.input`
     border-bottom-width: ${calcHeight(1)};
     border-bottom-style: solid;
     padding: ${calcHeight(8)} 0;
-    margin: ${calcHeight(10)} 0;
     align-self: stretch;
     outline: none;
 `;
