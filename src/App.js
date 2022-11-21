@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import UserContext from "./globals/states/UserContext";
 
 function App() {
-    const [user, setUser] = useState(null);
+    const userState = useState(null);
 
     return (
         <>
@@ -16,8 +16,8 @@ function App() {
             <GlobalLayout />
             <GlobalTheme />
 
-            <UserContext.Provider value={user}>
-                {!user && <Login />}
+            <UserContext.Provider value={userState}>
+                {!userState[0] && <Login />}
             </UserContext.Provider>
         </>
     );
