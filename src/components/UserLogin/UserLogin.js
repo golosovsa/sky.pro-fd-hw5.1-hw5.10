@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginForm from "../styled/LoginForm/LoginForm";
 import LoginInput from "../styled/LoginInput/LoginInput";
 import LoginButton from "../styled/LoginButton/LoginButton";
-import Logo from "../styled/Logo/Logo";
+import { LoginLogo } from "../styled/Logo/Logo";
 import Flex from "../styled/Flex/Flex";
 
 const AUTHENTICATION = "Authentication";
@@ -18,7 +18,7 @@ function Login() {
     return (
         <LoginForm>
             <Flex rowGap="35" stretch>
-                <Logo />
+                <LoginLogo />
                 <LoginInput type="text" placeholder="Логин" />
                 <LoginInput type="password" placeholder="Пароль" />
                 {action === REGISTRATION && (

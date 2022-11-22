@@ -7,6 +7,10 @@ const LOGIN = {
         background: PALLETTE.white,
     },
 
+    logo: {
+        color: PALLETTE.black,
+    },
+
     input: {
         color: PALLETTE.black,
         "border-color": PALLETTE.greyGoose,

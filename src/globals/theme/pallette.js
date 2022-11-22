@@ -16,6 +16,8 @@ const PALLETTE = {
     greyGoose: "#D0CECE",
     whiteSmoke: "#F4F5F6",
     lightGrey: "#D9D9D9",
+    liver: "#4E4E4E",
+    quillGrey: "#D3D3D3",
     lavenderPinocchio: "#E1E1E1",
     daisyBush: "#580EA2",
     kingfisherDaisy: "#3F007D",

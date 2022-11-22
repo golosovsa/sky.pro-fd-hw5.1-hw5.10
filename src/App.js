@@ -5,9 +5,12 @@ import { GlobalLayout } from "./globals/layout/index";
 import { GlobalTheme } from "./globals/theme/index";
 import Login from "./pages/Login";
 import UserContext from "./globals/states/UserContext";
+import Main from "./pages/Main";
 
 function App() {
     const userState = useState(null);
+
+    // userState[1](1);
 
     return (
         <>
@@ -16,8 +19,10 @@ function App() {
             <GlobalLayout />
             <GlobalTheme />
 
-            <UserContext.Provider value={userState}>
+            <UserContext.Provider value={userState} >
                 {!userState[0] && <Login />}
+                {userState[0] && <Main />}
+                <Main />
             </UserContext.Provider>
         </>
     );
