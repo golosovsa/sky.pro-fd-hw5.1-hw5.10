@@ -6,6 +6,13 @@ import { ReactComponent as burger } from "./burger.svg";
 const IconBurger = styled(burger)`
     ${applyThemeMixin("main", "iconBurger")}
     ${layoutSizeMixin(20, 10)}
+    transition: color 0.2s linear, transform 0.2s linear;
+    &:hover {
+        transform: scaleY(1.15);
+    }
+    &:active {
+        transform: scaleY(1.3); 
+    }
 `;
 
 export default IconBurger;

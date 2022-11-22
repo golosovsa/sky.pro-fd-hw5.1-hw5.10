@@ -4,7 +4,7 @@ import { calcWidth, calcHeight } from "../../../globals/layout";
 const Flex = styled.div`
     display: flex;
     flex-direction: ${props => props.direction || "column"};
-    flex-wrap: ${props => props.direction || "nowrap"};
+    flex-wrap: ${props => props.wrap || "nowrap"};
     justify-content: ${props => props.justifyContent || "center"};
     align-items: ${props => props.alignItems || "center"};
     align-content: ${props => props.alignContent || "center"};
