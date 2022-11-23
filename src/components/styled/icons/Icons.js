@@ -9,6 +9,7 @@ import IconSearch from "./IconSearch";
 import IconShuffle from "./IconShuffle";
 import IconStop from "./IconStop";
 import IconVolume from "./IconVolume";
+import IconThemeDark from "./IconThemeDark";
 
 const Icons = {
     BrokenHeart: IconBrokenHeart,
@@ -22,6 +23,7 @@ const Icons = {
     Shuffle: IconShuffle,
     Stop: IconStop,
     Volume: IconVolume,
+    ThemeDark: IconThemeDark,
 };
 
 export default Icons;

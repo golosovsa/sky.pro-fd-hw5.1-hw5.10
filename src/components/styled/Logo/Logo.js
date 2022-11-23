@@ -12,6 +12,7 @@ const LoginLogo = styled(Logo)`
 `;
 
 const MainLogo = styled(Logo)`
+    ${layoutSizeMixin(114, 17)}
     ${applyThemeMixin("main", "logo")}
 `;
 

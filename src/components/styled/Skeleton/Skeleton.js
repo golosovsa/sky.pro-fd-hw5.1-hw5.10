@@ -4,7 +4,7 @@ import { applyThemeMixin } from "../../../globals/theme";
 
 const shineDuration = "5s";
 
-const Sceleton = styled.div`
+const Skeleton = styled.div`
     ${applyThemeMixin("main", "sceleton")}
     ${(props) => layoutSizeMixin(props.width || "100", props.height || "100")}
     animation: ${(props) => keyframes`
@@ -22,4 +22,4 @@ const Sceleton = styled.div`
     background-size: ${calcWidth(1920 * 3)} 1px;
 `;
 
-export default Sceleton;
+export default Skeleton;

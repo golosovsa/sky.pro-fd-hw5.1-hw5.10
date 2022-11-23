@@ -23,6 +23,7 @@ const Button = styled.button`
     border-style: solid;
     border-radius: ${calcHeight(60)};
     transition: border-color 0.2s linear, color 0.2s linear;
+    white-space: nowrap;
 `;
 
 export default Button;

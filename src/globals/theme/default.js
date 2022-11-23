@@ -50,7 +50,7 @@ import MAIN from "./default/main";
 
 const COLOR_THEME_ATTRIBUTES = ["background", "color", "border-color", "fill"];
 const EFFECT_THEME_ATTRIBUTES = ["hover", "focus", "active", "link", "visited"];
-const PSEUDO_THEME_ATTRIBUTES = ["placeholder"];
+const PSEUDO_THEME_ATTRIBUTES = ["placeholder", "selection"];
 
 const DEFAULT = {
     background: PALLETTE.rangoonGreen,

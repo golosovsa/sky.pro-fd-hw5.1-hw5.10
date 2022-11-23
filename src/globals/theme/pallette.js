@@ -11,6 +11,7 @@ const PALLETTE = {
     dune: "#313131",
     jasminePurple: "#9A48F1",
     rangoonGreen: "#181818",
+    rangoonGreenLighter: "#1C1C1C",
     tyrianPurple: "#AD61FF",
     greyGoose: "#D0CECE",
     whiteSmoke: "#F4F5F6",
@@ -23,7 +24,7 @@ const PALLETTE = {
     daisyBush: "#580EA2",
     kingfisherDaisy: "#3F007D",
     balticSea: "rgba(0, 0, 0, 0.85)", // #262626
-    shineSceleton: "linear-gradient(90deg, #313131 0vw, #696969 1.5vw, #313131 3vw)",
+    shineSkeleton: "linear-gradient(90deg, #313131 0vw, #696969 1.5vw, #313131 3vw)",
     transparent: "transparent",
 };
 

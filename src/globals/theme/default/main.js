@@ -33,6 +33,32 @@ const switcherIcon = {
     },
 };
 
+const likeButtonIcon = {
+    fill: PALLETTE.transparent,
+    color: PALLETTE.white,
+
+    hover: {
+        color: PALLETTE.lightViolet,
+    },
+
+    active: {
+        color: PALLETTE.tyrianPurple,
+    },
+};
+
+const likeButtonLink = {
+    background: PALLETTE.transparent,
+    color: PALLETTE.white,
+
+    hover: {
+        color: PALLETTE.lightViolet,
+    },
+
+    active: {
+        color: PALLETTE.tyrianPurple,
+    },
+}
+
 const MAIN = {
     background: PALLETTE.rangoonGreen,
 
@@ -78,8 +104,10 @@ const MAIN = {
     iconPlay: switcherIcon,
     iconStop: switcherIcon,
 
-    sceleton: {
-        background: PALLETTE.shineSceleton,
+    iconThemeDark: likeButtonIcon,
+
+    skeleton: {
+        background: PALLETTE.shineSkeleton,
     },
 
     button: {
@@ -119,9 +147,36 @@ const MAIN = {
         background: PALLETTE.tyrianPurple,
     },
 
+    input: {
+        background: PALLETTE.transparent,
+        color: PALLETTE.white,
+
+        placeholder: {
+            color: PALLETTE.white,
+        },
+
+        selection: {
+            background: PALLETTE.dune,
+        },
+    },
+
     header: {
         color: PALLETTE.white,
     },
+
+    search: {
+        "border-color": PALLETTE.liver,
+    },
+
+    activeMenu: {
+        background: PALLETTE.rangoonGreenLighter,
+    },
+
+    filter: {
+        color: PALLETTE.white,
+    },
+
+    menuItem: likeButtonLink,
 };
 
 export default MAIN;

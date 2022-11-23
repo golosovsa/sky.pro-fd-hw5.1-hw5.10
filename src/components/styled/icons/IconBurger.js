@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { layoutSizeMixin } from "../../../globals/layout";
+import { layoutSizeMixin, calcHeight } from "../../../globals/layout";
 import { applyThemeMixin } from "../../../globals/theme";
 import { ReactComponent as burger } from "./burger.svg";
 
@@ -13,6 +13,8 @@ const IconBurger = styled(burger)`
     &:active {
         transform: scaleY(1.3); 
     }
+    margin-top: ${calcHeight(46)};
+    margin-bottom: ${calcHeight(36)};
 `;
 
 export default IconBurger;
