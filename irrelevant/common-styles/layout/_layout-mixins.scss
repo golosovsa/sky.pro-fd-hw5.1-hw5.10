@@ -1,8 +1,0 @@
-@mixin layout-size($width, $height) {
-    width: scale-width($width);
-    height: scale-height($height);
-}
-
-@mixin layout-text($font-size, $line-height, $font-weight) {
-    @include text(scale-height($font-size), scale-height($line-height), $font-weight);
-}

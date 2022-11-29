@@ -1,31 +1,35 @@
-import { useState } from "react";
-import GlobalReset from "./globals/reset/index";
-import { GlobalFonts } from "./globals/fonts/index";
-import { GlobalLayout } from "./globals/layout/index";
-import { GlobalTheme } from "./globals/theme/index";
-import Login from "./pages/Login";
-import UserContext from "./globals/states/UserContext";
-import Main from "./pages/Main";
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+import { useLoginMutation } from './services/user'
 
 function App() {
-    const userState = useState(null);
-
-    // userState[1](1);
-
-    return (
-        <>
-            <GlobalReset />
-            <GlobalFonts />
-            <GlobalLayout />
-            <GlobalTheme />
-
-            <UserContext.Provider value={userState} >
-                {!userState[0] && <Login />}
-                {userState[0] && <Main />}
-                <Main />
-            </UserContext.Provider>
-        </>
-    );
+  return (
+    <Provider store={store}>
+      <ProvidedApp />
+    </Provider>
+  )
 }
 
-export default App;
+function ProvidedApp() {
+  const [login, state] = useLoginMutation()
+
+  const handleLogin = () => {
+    login({
+      email: 'grm@grm.ru',
+      password: 'qwert1234!@#$'
+    })
+  }
+
+  return (
+    <>
+      <h1>The app</h1>
+      <p>lorem20</p>
+      <button onClick={handleLogin} disabled={state.isLoading}>
+        Login
+      </button>
+      <p>{JSON.stringify(state) || 'empty'}</p>
+    </>
+  )
+}
+
+export default App
