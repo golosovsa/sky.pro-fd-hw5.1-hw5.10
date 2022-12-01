@@ -1,13 +1,14 @@
-import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-const App = React.lazy(() => import('./App'))
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import store from './store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <Suspense fallback={<p>LOADING...</p>}>
+  <Provider store={store}>
+    <BrowserRouter>
       <App />
-    </Suspense>
-  </React.StrictMode>
+    </BrowserRouter>
+  </Provider>
 )

@@ -8,9 +8,19 @@ extends:
   - plugin:react/jsx-runtime
 overrides: []
 parserOptions:
+  ecmaFeatures:
+    jsx: true
   ecmaVersion: latest
   sourceType: module
 plugins:
   - react
   - prettier
-rules: {}
+rules: 
+  react/jsx-filename-extensions:
+    - 1
+    - extensions:
+      - *.js
+      - *.jsx
+  react/prop-types: 0
+  react/destructuring-assignment:
+    - 0

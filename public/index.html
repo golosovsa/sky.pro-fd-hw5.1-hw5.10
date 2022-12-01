@@ -5,16 +5,107 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .bootloader {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      }
+      .bootloader__container {
+        display: grid;
+        grid-template-columns: repeat(3, min(5vw, 5vh));
+        gap: min(1vw, 1vh);
+      }
+
+      .bootloader__item {
+        width: min(5vw, 5vh);
+        height: min(5vw, 5vh);
+        background-color: transparent;
+        animation: bootloader__animation 4.5s ease-in-out infinite alternate;
+      }
+
+      .bootloader__item:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .bootloader__item:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+
+      .bootloader__item:nth-child(3) {
+        animation-delay: 1s;
+      }
+
+      .bootloader__item:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+
+      .bootloader__item:nth-child(5) {
+        animation-delay: 2s;
+      }
+
+      .bootloader__item:nth-child(6) {
+        animation-delay: 2.5s;
+      }
+
+      .bootloader__item:nth-child(7) {
+        animation-delay: 3s;
+      }
+
+      .bootloader__item:nth-child(8) {
+        animation-delay: 3.5s;
+      }
+
+      .bootloader__item:nth-child(9) {
+        animation-delay: 4s;
+      }
+
+      @keyframes bootloader__animation {
+        0% {
+          background-color: transparent;
+          transform: scale(0.75);
+        }
+        50% {
+          background-color: white;
+          transform: scale(1);
+        }
+        100% {
+          background-color: transparent;
+          transform: scale(0.75);
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">12345</div>
+    <div id="root">
+      <div class="bootloader">
+        <div class="bootloader__container">
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+          <div class="bootloader__item"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
