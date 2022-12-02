@@ -16,11 +16,11 @@ plugins:
   - react
   - prettier
 rules: 
-  react/jsx-filename-extensions:
+  react/jsx-filename-extension:
     - 1
     - extensions:
-      - *.js
-      - *.jsx
+      - .js
+      - .jsx
   react/prop-types: 0
   react/destructuring-assignment:
     - 0
