@@ -11,7 +11,11 @@ const userSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    logout: () => initialState
+    logout: (state) => {
+      state.user = initialState.user
+      state.token = initialState.token
+      state.isAuthenticated = initialState.isAuthenticated
+    }
   },
   extraReducers: (builder) => {
     builder
