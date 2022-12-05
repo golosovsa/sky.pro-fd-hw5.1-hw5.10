@@ -1,14 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import * as S from '../settings'
 
-const TAG_TYPES = ['Token']
-
-export const userApi = createApi({
+export const authApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${S.backend}/user/`
   }),
-  tagTypes: TAG_TYPES,
+  tagTypes: ['Tokens'],
   endpoints: (builder) => ({
     signup: builder.mutation({
       query: (body) => ({
@@ -22,15 +20,25 @@ export const userApi = createApi({
         url: 'login/',
         method: 'POST',
         body
-      })
+      }),
+      invalidatesTags: ['Tokens']
     }),
     token: builder.mutation({
       query: (body) => ({
-        url: 'login/',
+        url: 'token/',
+        method: 'POST',
+        body
+      }),
+      providesTags: () => ['Tokens']
+    }),
+    refresh: builder.mutation({
+      query: (body) => ({
+        url: 'token/refresh/',
         method: 'POST',
         body
       })
-    }),
-    refresh: builder.mutation({})
+    })
   })
 })
+
+export const { useSignupMutation, useLoginMutation, useTokenMutation, useRefreshMutation } = authApi
