@@ -25,5 +25,17 @@ const getCSSVarsObject = (theme) => {
 
 export const getCSSVarList = (theme) => {
   const cssVars = getCSSVarsObject(theme)
-  return Object.entries(cssVars).map(([key, value]) => `--${key}: ${value};`)
+  return Object.entries(cssVars).map(([key, value]) => `--${key.replace(':', '')}: ${value};`)
+}
+
+const getCSSPropertyVarName = (component, property, prefix = '--') =>
+  `${prefix}-${component}-${property}`.replace(':', '')
+
+export const getCSSPropertiesList = (theme, componentName, prefix = '-') => {
+  if (!componentName || !(componentName in theme)) return []
+  const component = theme[componentName]
+  
+  Object.keys(component).forEach((propery) => {
+    
+  })
 }
