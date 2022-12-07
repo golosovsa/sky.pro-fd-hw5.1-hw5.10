@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { deleteRefresh, storeRefresh } from '../../auth/refresh'
+import { userApi } from '../../services/user'
 
 const initialState = {
   access: '',
@@ -17,9 +18,18 @@ export const authSlice = createSlice({
     },
     tokenReceived: (state, { payload }) => {
       const { access, refresh } = payload
-      state.access = access || ''
+      if (access) state.access = access
       if (refresh) storeRefresh(refresh)
     }
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(userApi.endpoints.token.matchFulfilled, (state, { payload }) => {
+      const { access, refresh } = payload
+      if (!access || !refresh) return
+      state.access = access
+      state.isLoggedIn = true
+      storeRefresh(refresh)
+    })
   }
 })
 
