@@ -1,4 +1,4 @@
-const isThemeNode = (node) => {
+export const isThemeNode = (node) => {
   if (!node || Array.isArray(node) || typeof node !== 'object') return false
 
   return true
@@ -28,14 +28,23 @@ export const getCSSVarList = (theme) => {
   return Object.entries(cssVars).map(([key, value]) => `--${key.replace(':', '')}: ${value};`)
 }
 
-const getCSSPropertyVarName = (component, property, prefix = '--') =>
-  `${prefix}-${component}-${property}`.replace(':', '')
+const getCSSPropertyVarName = (component, property, prefix = '-') =>
+  `var(${prefix}-${component}-${property})`.replace(':', '')
 
 export const getCSSPropertiesList = (theme, componentName, prefix = '-') => {
   if (!componentName || !(componentName in theme)) return []
   const component = theme[componentName]
-  
-  Object.keys(component).forEach((propery) => {
-    
+
+  let result = []
+
+  Object.keys(component).forEach((property) => {
+    if (property.includes(':') && isThemeNode(component[property])) {
+      const propertyPrefix = `${prefix}-${componentName}`
+      result[`&${property}`] = getCSSPropertiesList(component, property, propertyPrefix)
+    } else {
+      result[property.replace(':', '')] = getCSSPropertyVarName(componentName, property, prefix)
+    }
   })
+
+  return result
 }
