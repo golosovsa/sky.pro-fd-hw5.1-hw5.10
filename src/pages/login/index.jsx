@@ -1,4 +1,4 @@
-import Icons from '../../components/styled/icons'
+import Icons from '../../components/icons'
 
 export const Login = () => {
   return (
