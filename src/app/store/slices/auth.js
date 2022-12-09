@@ -4,7 +4,34 @@ import { userApi } from '../../services/user'
 
 const initialState = {
   access: '',
-  isLoggedIn: false
+  isLoggedIn: false,
+  errors: []
+}
+
+const storeTokens = (state, { payload }) => {
+  const { access, refresh } = payload
+  if (!access || !refresh) return
+  state.access = access
+  state.isLoggedIn = true
+  storeRefresh(refresh)
+}
+
+const storeErrors = (state, { payload }) => {
+  const { data } = payload
+  state.errors = []
+  Object.keys(data).forEach((error) => {
+    const messages = data[error]
+    state.errors.push(
+      ...messages.map((message) => ({
+        error,
+        message,
+        isHidden: false
+      }))
+    )
+  })
+  for (let i = 0; i < state.errors.length; i++) {
+    state.errors[i].id = i
+  }
 }
 
 export const authSlice = createSlice({
@@ -20,26 +47,30 @@ export const authSlice = createSlice({
       const { access, refresh } = payload
       if (access) state.access = access
       if (refresh) storeRefresh(refresh)
+    },
+    hideError: (state, { payload }) => {
+      const { id } = payload
+      if (isNaN(id) || id < 0 || id >= state.errors.length) return
+      state.errors[id].isHidden = true
+    },
+    addError: (state, { payload }) => {
+      const { error, message } = payload
+      state.errors.push({
+        id: state.errors.length,
+        error,
+        message,
+        isHidden: false
+      })
     }
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(userApi.endpoints.token.matchFulfilled, (state, { payload }) => {
-        const { access, refresh } = payload
-        if (!access || !refresh) return
-        state.access = access
-        state.isLoggedIn = true
-        storeRefresh(refresh)
-      })
-      .addMatcher(userApi.endpoints.refresh.matchFulfilled, (state, { payload }) => {
-        const { access, refresh } = payload
-        if (!access || !refresh) return
-        state.access = access
-        state.isLoggedIn = true
-        storeRefresh(refresh)
-      })
+      .addMatcher(userApi.endpoints.token.matchFulfilled, storeTokens)
+      .addMatcher(userApi.endpoints.refresh.matchFulfilled, storeTokens)
+      .addMatcher(userApi.endpoints.signup.matchRejected, storeErrors)
+      .addMatcher(userApi.endpoints.login.matchRejected, storeErrors)
   }
 })
 
-export const { logOut, tokenReceived } = authSlice.actions
+export const { logOut, tokenReceived, hideError, addError } = authSlice.actions
 export default authSlice.reducer

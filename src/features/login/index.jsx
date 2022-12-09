@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { useLoginMutation, useSignupMutation, useTokenMutation } from '../../app/services/user'
+import { addError } from '../../app/store/slices/auth'
 import LoginButton from '../../components/login-button'
 import LoginForm from '../../components/login-form'
 import LoginInput from '../../components/login-input'
 import LoginSubmit from '../../components/login-submit'
 
 function LoginFeature() {
+  const dispatch = useDispatch()
+
   const [isSignUp, setIsSignUp] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -36,6 +40,10 @@ function LoginFeature() {
   }, [isSignInSuccess])
 
   const handleSignUp = () => {
+    if (password !== repeatedPassword) {
+      dispatch(addError({ error: 'password', message: 'Оба введеных пороля должны совпадать' }))
+      return
+    }
     signUp({
       username,
       email: `${username}@mail.ru`,
