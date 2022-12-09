@@ -16,4 +16,17 @@ export const Reset = createGlobalStyle`
   body {
     overflow: hidden;
   }
+
+  /* input, input:hover,
+  input[type="text"], input[type="text"]:hover,
+  input[type="button"], input[type="button"]:hover,
+  input[type="submit"], input[type="submit"]:hover,
+  button, button:hover,
+  button[disabled], button[disabled]:hover {
+    border: none;
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    outline: none;
+  } */
 `

@@ -1,10 +1,7 @@
-import Icons from '../../components/icons'
+import LoginFeature from '../../features/login'
 
-export const Login = () => {
-  return (
-    <>
-      <h1>Login</h1>
-      <Icons.LoginLogo />
-    </>
-  )
+const Login = () => {
+  return <LoginFeature />
 }
+
+export default Login

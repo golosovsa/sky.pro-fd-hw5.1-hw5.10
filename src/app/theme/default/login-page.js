@@ -21,5 +21,32 @@ export const loginPage = {
     '::placeholder': {
       color: PALETTE.gainsboro
     }
+  },
+
+  'login-button': {
+    'border-color': PALETTE.grayishRed,
+    'background-color': PALETTE.transparent,
+    color: PALETTE.black,
+
+    ':hover': {
+      'background-color': PALETTE.porcelain
+    },
+
+    ':active': {
+      'background-color': PALETTE.grayishRed
+    }
+  },
+
+  'login-submit': {
+    'background-color': PALETTE.blueGem,
+    color: PALETTE.white,
+
+    ':hover': {
+      'background-color': PALETTE.pigmentIndigo
+    },
+
+    ':active': {
+      'background-color': PALETTE.valhalla
+    }
   }
 }

@@ -23,13 +23,21 @@ export const authSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addMatcher(userApi.endpoints.token.matchFulfilled, (state, { payload }) => {
-      const { access, refresh } = payload
-      if (!access || !refresh) return
-      state.access = access
-      state.isLoggedIn = true
-      storeRefresh(refresh)
-    })
+    builder
+      .addMatcher(userApi.endpoints.token.matchFulfilled, (state, { payload }) => {
+        const { access, refresh } = payload
+        if (!access || !refresh) return
+        state.access = access
+        state.isLoggedIn = true
+        storeRefresh(refresh)
+      })
+      .addMatcher(userApi.endpoints.refresh.matchFulfilled, (state, { payload }) => {
+        const { access, refresh } = payload
+        if (!access || !refresh) return
+        state.access = access
+        state.isLoggedIn = true
+        storeRefresh(refresh)
+      })
   }
 })
 

@@ -1,16 +1,18 @@
-import { ButtonsContainer, InputsContainer, LoginFormContainer } from './containers'
+import { ButtonsContainer, InputsContainer, LoginFormContainer, LogoContainer } from './containers'
 import { LoginFormStyled } from './style'
-import { Icons } from '../icons'
+import Icons from '../icons'
 
 const emptySubmit = (e) => e.preventDefault()
 
-const LoginForm = ({ inputs, buttons, onSubmit = emptySubmit }) => {
+const LoginForm = ({ inputs, buttons, onSubmit = emptySubmit, disabled = false }) => {
   return (
-    <LoginFormContainer>
+    <LoginFormContainer disabled={disabled}>
       <LoginFormStyled onSubmit={onSubmit}>
-        <Icons.LoginLogo />
-        <InputsContainer>{inputs}</InputsContainer>
-        <ButtonsContainer>{buttons}</ButtonsContainer>
+        <LogoContainer>
+          <Icons.LoginLogo />
+        </LogoContainer>
+        <InputsContainer disabled={disabled}>{inputs}</InputsContainer>
+        <ButtonsContainer disabled={disabled}>{buttons}</ButtonsContainer>
       </LoginFormStyled>
     </LoginFormContainer>
   )

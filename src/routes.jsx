@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { ProtectedRoute } from './components/protected-route'
-import { Login } from './pages/login'
+import Login from './pages/login'
 import { Main } from './pages/main'
 
 export const AppRoutes = ({ isAuth }) => {

@@ -1,37 +1,42 @@
-import { createApi } from '@reduxjs/toolkit/dist/query'
+import { createApi } from '@reduxjs/toolkit/query/react'
 import { publicQuery } from '../auth/query'
 
-const TOKEN_TAG = 'Tokens'
+export const TOKEN_TAG = 'Tokens'
 
 export const userApi = createApi({
   reducerPath: 'user',
   baseQuery: publicQuery,
   tagTypes: [TOKEN_TAG],
-  endpoints: (builder) => ({
-    signup: builder.mutation({
+  endpoints: (build) => ({
+    signup: build.mutation({
       query: (body) => ({
         url: 'user/signup/',
         method: 'POST',
         body
       })
     }),
-    login: builder.mutation({
+    login: build.mutation({
       query: (body) => ({
         url: 'user/login/',
         method: 'POST',
         body
-      }),
-      invalidatesTags: [TOKEN_TAG]
+      })
     }),
-    token: builder.mutation({
+    token: build.mutation({
       query: (body) => ({
         url: 'user/token/',
         method: 'POST',
         body
-      }),
-      providesTags: [TOKEN_TAG]
+      })
+    }),
+    refresh: build.mutation({
+      query: (body) => ({
+        url: 'user/token/refresh/',
+        method: 'POST',
+        body
+      })
     })
   })
 })
 
-export const { useSignupMutation, useLoginMutation, useTokenMutation } = userApi
+export const { useSignupMutation, useLoginMutation, useTokenMutation, useRefreshMutation } = userApi
