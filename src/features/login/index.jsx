@@ -41,7 +41,13 @@ function LoginFeature() {
 
   const handleSignUp = () => {
     if (password !== repeatedPassword) {
-      dispatch(addError({ error: 'password', message: 'Оба введеных пороля должны совпадать' }))
+      dispatch(
+        addError({
+          error: 'password',
+          message: 'Оба введеных пороля должны совпадать',
+          unique: 'noPasswordMessage'
+        })
+      )
       return
     }
     signUp({

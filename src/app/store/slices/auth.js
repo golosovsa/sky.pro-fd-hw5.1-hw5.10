@@ -54,11 +54,17 @@ export const authSlice = createSlice({
       state.errors[id].isHidden = true
     },
     addError: (state, { payload }) => {
-      const { error, message } = payload
+      const { error, message, unique } = payload
+      const index = state.errors.findIndex((e) => e.unique && e.unique === unique)
+      if (index >= 0) {
+        state.errors[index] = { ...state.errors[index], isHidden: false }
+        return
+      }
       state.errors.push({
         id: state.errors.length,
         error,
         message,
+        unique,
         isHidden: false
       })
     }
