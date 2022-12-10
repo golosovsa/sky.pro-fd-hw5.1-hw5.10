@@ -10,10 +10,12 @@ const initialState = {
 
 const storeTokens = (state, { payload }) => {
   const { access, refresh } = payload
-  if (!access || !refresh) return
+  if (!access) {
+    return
+  }
   state.access = access
   state.isLoggedIn = true
-  storeRefresh(refresh)
+  if (refresh) storeRefresh(refresh)
 }
 
 const storeErrors = (state, { payload }) => {
@@ -41,6 +43,7 @@ export const authSlice = createSlice({
     logOut: (state) => {
       state.access = initialState.access
       state.isLoggedIn = initialState.isLoggedIn
+      state.errors = initialState.errors
       deleteRefresh()
     },
     tokenReceived: (state, { payload }) => {

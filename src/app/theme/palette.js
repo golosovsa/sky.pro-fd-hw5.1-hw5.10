@@ -8,5 +8,6 @@ export const PALETTE = {
   blueGem: '#580EA2',
   pigmentIndigo: '#3F007D',
   porcelain: '#F4F5F6',
-  valhalla: '#271A58'
+  valhalla: '#271A58',
+  nero: '#181818'
 }

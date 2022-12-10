@@ -8,14 +8,16 @@ import { AppRoutes } from './routes'
 function App() {
   const isLoggedIn = useSelector(isLoggedInSelector)
 
-  const [refresh] = useRefreshMutation()
+  const [refresh, { isLoading: isRefreshFetching, isError: isRefreshError }] = useRefreshMutation()
 
   useEffect(() => {
     if (!isRefreshExists()) return
     refresh({ refresh: getRefresh() })
   }, [])
 
-  useEffect(() => console.log('isLoggedIn', isLoggedIn), [isLoggedIn])
+  if ((!isLoggedIn || isRefreshFetching) && !isRefreshError && isRefreshExists()) {
+    return
+  }
 
   return <AppRoutes isAuth={isLoggedIn} />
 }

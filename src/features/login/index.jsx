@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { useLoginMutation, useSignupMutation, useTokenMutation } from '../../app/services/user'
+import { isLoggedInSelector } from '../../app/store/selectors/auth'
 import { addError } from '../../app/store/slices/auth'
 import LoginButton from '../../components/login-button'
 import LoginForm from '../../components/login-form'
@@ -10,6 +11,8 @@ import LoginSubmit from '../../components/login-submit'
 
 function LoginFeature() {
   const dispatch = useDispatch()
+
+  const isLoggedIn = useSelector(isLoggedInSelector)
 
   const [isSignUp, setIsSignUp] = useState(false)
   const [username, setUsername] = useState('')
@@ -117,6 +120,10 @@ function LoginFeature() {
       {!isSignUp && <LoginButton value="Зарегистрироваться" onClick={handleOnSignUpClick} />}
     </>
   )
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />
+  }
 
   return (
     <LoginForm

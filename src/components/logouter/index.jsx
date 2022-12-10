@@ -1,14 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { isLoggedInSelector } from '../../app/store/selectors/auth'
-import { logOut } from '../../app/store/slices/auth'
+import { useDispatch } from 'react-redux'
 
-export const LogOuter = () => {
+export const LogOuter = ({ reducer }) => {
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector(isLoggedInSelector)
-
-  const handleLogOut = () => dispatch(logOut)
-
-  if (!isLoggedIn) return
-
+  const handleLogOut = () => dispatch(reducer())
   return <button onClick={handleLogOut}>Log Out</button>
 }
