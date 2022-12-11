@@ -15,6 +15,7 @@ const ErrorItem = ({ id, error, message, isHidden = false, onHide = undefined })
     <ErrorItemStyled isHidden={hidden} onClick={handleClose}>
       <p>{error}</p>
       <p>{message}</p>
+      <p>X</p>
     </ErrorItemStyled>
   )
 }

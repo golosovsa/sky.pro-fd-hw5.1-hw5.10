@@ -9,5 +9,6 @@ export const PALETTE = {
   pigmentIndigo: '#3F007D',
   porcelain: '#F4F5F6',
   valhalla: '#271A58',
-  nero: '#181818'
+  nero: '#181818',
+  lightGray: '#D3D3D3'
 }

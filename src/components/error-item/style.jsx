@@ -4,7 +4,8 @@ export const ErrorItemStyled = styled.div`
   ${(props) => props.theme.applyColors('error-item')}
   ${(props) => props.theme.applyFont(18, 24, 400)}
   display: ${(props) => (props.isHidden ? 'none' : 'grid')};
-  grid-template-columns: ${(props) => props.theme.width(110)} auto;
+  grid-template-columns: ${(props) => props.theme.width(150)} auto ${(props) =>
+      props.theme.width(5)};
   align-items: center;
   width: 100%;
   height: ${(props) => props.theme.height(42)};

@@ -1,7 +1,14 @@
+import { Link } from 'react-router-dom'
+import Icons from '../../components/icons'
 import MainNavigation from '../../components/main-navigation'
 
 const NavigationFeature = () => {
-  const permanent = <p>permanent</p>
+  const permanent = (
+    <Link to="/">
+      <Icons.MainLogo />
+    </Link>
+  )
+
   const icon = <p>icon</p>
 
   return (
