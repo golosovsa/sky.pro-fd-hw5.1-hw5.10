@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getTheme, storeTheme } from '../../theme'
 import { THEME_DEFAULT, THEME_DARK, THEME_LIGHT } from '../../theme/constants'
 
 const initialState = {
-  value: THEME_DEFAULT
+  value: getTheme() || THEME_DEFAULT,
+  isSwitchTheme: false
 }
 
 export const themeSlice = createSlice({
@@ -10,10 +12,15 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.value = state.value === THEME_DARK ? THEME_LIGHT : THEME_DARK
+      const theme = state.value === THEME_DARK ? THEME_LIGHT : THEME_DARK
+      state.value = theme
+      storeTheme(theme)
+    },
+    setIsSwitchTheme: (state, { payload }) => {
+      state.isSwitchTheme = payload
     }
   }
 })
 
-export const { toggleTheme } = themeSlice.actions
+export const { toggleTheme, setIsSwitchTheme } = themeSlice.actions
 export default themeSlice.reducer

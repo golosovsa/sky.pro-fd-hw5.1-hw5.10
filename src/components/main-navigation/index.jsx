@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BurgerContainer, BurgerIconContainer } from './container'
+import { BackgroundContainer, BurgerContainer, BurgerIconContainer } from './container'
 import { MainNavigationStyled } from './style'
 
 const MainNavigation = ({ permanent, icon, children }) => {
@@ -12,6 +12,7 @@ const MainNavigation = ({ permanent, icon, children }) => {
       {permanent}
       <BurgerIconContainer onClick={handleShowBurger}>{icon}</BurgerIconContainer>
       <BurgerContainer shown={shown}>{children}</BurgerContainer>
+      <BackgroundContainer shown={shown}></BackgroundContainer>
     </MainNavigationStyled>
   )
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const NavigationContainer = styled.section`
   padding-top: ${(props) => props.theme.height(36)};
   padding-left: ${(props) => props.theme.width(36)};
+  z-index: 0;
 `
 
 export const ContentContainer = styled.main`

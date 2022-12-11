@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import Icons from '../../components/icons'
 import MainNavigation from '../../components/main-navigation'
+import MainNavigationLink from '../../components/main-navigation-link'
+import { LogOut } from '../logout'
+import { ThemeSwitcher } from '../theme-switcher'
 
 const NavigationFeature = () => {
   const permanent = (
@@ -9,14 +12,16 @@ const NavigationFeature = () => {
     </Link>
   )
 
-  const icon = <p>icon</p>
+  const icon = <Icons.Burger />
 
   return (
     <MainNavigation permanent={permanent} icon={icon}>
-      <p>link 1</p>
-      <p>link 2</p>
-      <p>link 3</p>
-      <p>link 4</p>
+      <MainNavigationLink to="/">Главное</MainNavigationLink>
+      <MainNavigationLink to="/">Мои треки</MainNavigationLink>
+      <LogOut>
+        <MainNavigationLink>Выйти</MainNavigationLink>
+      </LogOut>
+      <ThemeSwitcher />
     </MainNavigation>
   )
 }

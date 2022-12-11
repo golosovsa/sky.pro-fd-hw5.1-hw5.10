@@ -10,5 +10,8 @@ export const PALETTE = {
   porcelain: '#F4F5F6',
   valhalla: '#271A58',
   nero: '#181818',
-  lightGray: '#D3D3D3'
+  lightGray: '#D3D3D3',
+  shineSkeletonDark: 'linear-gradient(90deg, #313131 0vw, #696969 1.5vw, #313131 3vw)',
+  codGray: '#1C1C1C',
+  pampas: '#F6F5F3'
 }
