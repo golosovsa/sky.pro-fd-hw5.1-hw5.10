@@ -43,5 +43,46 @@ export const mainPage = {
     ':visited': {
       color: PALETTE.white
     }
+  },
+
+  'search-container': {
+    'border-bottom-color': PALETTE.darkLiver
+  },
+
+  'search-icon': {
+    color: PALETTE.white
+  },
+
+  'search-input': {
+    'background-color': PALETTE.transparent,
+    color: PALETTE.white,
+
+    '::placeholder': {
+      color: PALETTE.gainsboro
+    }
+  },
+
+  title: {
+    color: PALETTE.white
+  },
+
+  label: {
+    color: PALETTE.white
+  },
+
+  'filter-button': {
+    'background-color': PALETTE.transparent,
+    'border-color': PALETTE.white,
+    color: PALETTE.white,
+
+    ':hover': {
+      'border-color': PALETTE.mauve,
+      color: PALETTE.mauve
+    },
+
+    ':active': {
+      'border-color': PALETTE.mauve,
+      color: PALETTE.mauve
+    }
   }
 }

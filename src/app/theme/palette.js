@@ -12,6 +12,11 @@ export const PALETTE = {
   nero: '#181818',
   lightGray: '#D3D3D3',
   shineSkeletonDark: 'linear-gradient(90deg, #313131 0vw, #696969 1.5vw, #313131 3vw)',
+  shineSkeletonLight: 'linear-gradient(90deg, #CECECE 0vw, #969696 1.5vw, #CECECE 3vw)',
   codGray: '#1C1C1C',
-  pampas: '#F6F5F3'
+  pampas: '#F6F5F3',
+  darkLiver: '#4E4E4E',
+  lightSilver: '#D9D9D9',
+  mauve: '#D9B6FF',
+  heliotrope: 'Heliotrope'
 }

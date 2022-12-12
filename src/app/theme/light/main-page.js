@@ -39,5 +39,35 @@ export const mainPage = {
     ':visited': {
       color: PALETTE.black
     }
+  },
+
+  'search-container': {
+    'border-bottom-color': PALETTE.lightSilver
+  },
+
+  'search-icon': {
+    color: PALETTE.black
+  },
+
+  'search-input': {
+    'background-color': PALETTE.transparent,
+    color: PALETTE.black,
+
+    '::placeholder': {
+      color: PALETTE.gainsboro
+    }
+  },
+
+  title: {
+    color: PALETTE.black
+  },
+
+  label: {
+    color: PALETTE.black
+  },
+
+  'filter-button': {
+    'border-color': PALETTE.black,
+    color: PALETTE.black
   }
 }
