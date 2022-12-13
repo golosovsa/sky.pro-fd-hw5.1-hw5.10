@@ -66,8 +66,23 @@ export const mainPage = {
     color: PALETTE.black
   },
 
-  'filter-button': {
+  'sticky-button': {
+    'background-color': PALETTE.transparent,
     'border-color': PALETTE.black,
     color: PALETTE.black
+  },
+
+  popup: {
+    'background-color': PALETTE.champagne
+  },
+
+  'short-list': {
+    '::-webkit-scrollbar-track': {
+      background: PALETTE.cemeteryDarkGrey
+    },
+
+    '::-webkit-scrollbar-thumb': {
+      'background-color': PALETTE.black
+    }
   }
 }

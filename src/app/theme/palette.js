@@ -18,5 +18,9 @@ export const PALETTE = {
   darkLiver: '#4E4E4E',
   lightSilver: '#D9D9D9',
   mauve: '#D9B6FF',
-  heliotrope: 'Heliotrope'
+  heliotrope: '#AD61FF',
+  nightRider: '#313131',
+  champagne: '#F7E7CE',
+  cemeteryDarkGrey: '#4B4949',
+  lavenderPurple: '#B672FF'
 }

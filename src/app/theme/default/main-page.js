@@ -70,7 +70,7 @@ export const mainPage = {
     color: PALETTE.white
   },
 
-  'filter-button': {
+  'sticky-button': {
     'background-color': PALETTE.transparent,
     'border-color': PALETTE.white,
     color: PALETTE.white,
@@ -78,11 +78,58 @@ export const mainPage = {
     ':hover': {
       'border-color': PALETTE.mauve,
       color: PALETTE.mauve
-    },
+    }
+  },
 
-    ':active': {
+  'sticky-button-active': {
+    'background-color': PALETTE.transparent,
+    'border-color': PALETTE.heliotrope,
+    color: PALETTE.heliotrope,
+
+    ':hover': {
       'border-color': PALETTE.mauve,
       color: PALETTE.mauve
     }
+  },
+
+  tab: {
+    'background-color': PALETTE.heliotrope,
+    color: PALETTE.white
+  },
+
+  popup: {
+    'background-color': PALETTE.nightRider
+  },
+
+  'short-list': {
+    'background-color': PALETTE.transparent,
+
+    '::-webkit-scrollbar-track': {
+      background: PALETTE.cemeteryDarkGrey
+    },
+
+    '::-webkit-scrollbar-thumb': {
+      'background-color': PALETTE.white
+    }
+  },
+
+  'short-list-item': {
+    color: PALETTE.white
+  },
+
+  'short-list-item-selected': {
+    color: PALETTE.lavenderPurple
+  },
+
+  'radio-marker-container': {
+    'border-color': PALETTE.white
+  },
+
+  'radio-marker': {
+    'background-color': PALETTE.white
+  },
+
+  'radio-item': {
+    color: PALETTE.white
   }
 }

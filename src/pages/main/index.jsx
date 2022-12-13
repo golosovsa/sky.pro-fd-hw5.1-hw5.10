@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import { useGetTracksQuery } from '../../app/services/tracks'
-import FilterButton from '../../components/filter-button'
 import MainLayout from '../../components/main-layout'
 import SearchInput from '../../components/search'
-import Title from '../../components/title'
 import LinksFeature from '../../features/links'
 import NavigationFeature from '../../features/navigation'
+import FilterFeature from '../../features/filter'
 
 export const Main = () => {
   const { data: tracks, isLoading: isTracksLoading } = useGetTracksQuery()
@@ -22,8 +21,7 @@ export const Main = () => {
   const content = (
     <>
       <SearchInput />
-      <FilterButton>sample</FilterButton>
-      <Title>прОвЕрОчНыЙ ТаЙтЛ</Title>
+      <FilterFeature data={tracks} />
     </>
   )
   const aside = <LinksFeature />

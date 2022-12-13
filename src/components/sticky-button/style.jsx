@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
-const FilterButton = styled.div`
-  ${(props) => props.theme.applyColors('filter-button')}
+export const StickyButtonStyled = styled.div`
+  ${(props) =>
+    props.active
+      ? props.theme.applyColors('sticky-button-active')
+      : props.theme.applyColors('sticky-button')}
   ${(props) => props.theme.applyFont(16, 18, 400)}
   letter-spacing: 0.001em;
   font-feature-settings: 'pnum' on, 'lnum' on;
@@ -16,6 +19,5 @@ const FilterButton = styled.div`
   justify-content: center;
   align-items: center;
   max-width: max-content;
+  transition: color 0.25s linear, border-color 0.25s linear;
 `
-
-export default FilterButton
