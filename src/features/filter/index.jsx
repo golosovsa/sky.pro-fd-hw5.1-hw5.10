@@ -1,23 +1,58 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 import { getFilter, storeFilter } from '../../app/filter/storage'
 import Filter from '../../components/filter'
 import FilterDropdown from '../../components/filter-dropdown'
 import RadioList from '../../components/radio-list'
 import ShortList from '../../components/short-list'
+import StickyButton from '../../components/sticky-button'
 
-const FilterFeature = ({ data }) => {
+const FilterFeature = ({ data, updateFilter }) => {
   const [authors, setAuthors] = useState([])
   const years = ['Более новые', 'Более старые']
   const [genres, setGenres] = useState([])
+  const [filter, setFilter] = useState(null)
+  const [showAuthorsPopup, setShowAuthorsPopup] = useState(false)
+  const [showYearsPopup, setShowYearsPopup] = useState(false)
+  const [showGenresPopup, setShowGenresPopup] = useState(false)
+  const showAuthorsPopupButtonRef = useRef(null)
+  const showYearsPopupButtonRef = useRef(null)
+  const showGenresPopupButtonRef = useRef(null)
 
-  const [filter, setFilter] = useState({})
+  const dispatchClickPopup = (popupRef) => {
+    const { current } = popupRef
+    if (!current) return
+    current.click()
+  }
 
-  useEffect(() => console.log('authors', authors), [authors])
-  useEffect(() => console.log('genres', genres), [genres])
-  useEffect(() => console.log('years', years), [years])
+  useEffect(() => {
+    if (!showAuthorsPopup) return
+    if (showYearsPopup) dispatchClickPopup(showYearsPopupButtonRef)
+    if (showGenresPopup) dispatchClickPopup(showGenresPopupButtonRef)
+  }, [showAuthorsPopup])
 
-  useEffect(() => {}, [filter])
+  useEffect(() => {
+    if (!showYearsPopup) return
+    if (showAuthorsPopup) dispatchClickPopup(showAuthorsPopupButtonRef)
+    if (showGenresPopup) dispatchClickPopup(showGenresPopupButtonRef)
+  }, [showYearsPopup])
+
+  useEffect(() => {
+    if (!showGenresPopup) return
+    if (showAuthorsPopup) dispatchClickPopup(showAuthorsPopupButtonRef)
+    if (showYearsPopup) dispatchClickPopup(showYearsPopupButtonRef)
+  }, [showGenresPopup])
+
+  useEffect(() => {
+    if (!filter) return
+    if (updateFilter) updateFilter(filter)
+    const forStoring = {
+      authors: filter.authors ? [...filter.authors] : [],
+      genres: filter.genres ? [...filter.genres] : [],
+      years: filter.years ? filter.years : years[0]
+    }
+    storeFilter(forStoring)
+  }, [filter])
 
   useEffect(() => {
     if (!data) return
@@ -36,24 +71,81 @@ const FilterFeature = ({ data }) => {
     const stored = getFilter()
     stored.authors = new Set(stored.authors || [])
     stored.genres = new Set(stored.genres || [])
-    stored.years = Number(stored.years || 0)
+    stored.years = stored.years || years[0]
     setFilter(stored)
-    return () => {
-      const forStoring = { ...filter, authors: [...filter.authors], genres: [...filter.genres] }
-      storeFilter(forStoring)
-    }
   }, [])
+
+  const handleOnAuthorItemClick = (author) => {
+    const authors = filter.authors
+
+    if (filter.authors.has(author)) {
+      authors.delete(author)
+      setFilter({ ...filter, authors })
+    } else {
+      authors.add(author)
+      setFilter({ ...filter, authors })
+    }
+  }
+
+  const handleOnYearsItemClick = (years) => {
+    setFilter({ ...filter, years })
+    console.log(years)
+  }
+
+  const handleOnGenreItemClick = (genre) => {
+    const genres = filter.genres
+
+    if (filter.genres.has(genre)) {
+      genres.delete(genre)
+      setFilter({ ...filter, genres })
+    } else {
+      genres.add(genre)
+      setFilter({ ...filter, genres })
+    }
+  }
 
   return (
     <Filter>
-      <FilterDropdown name="исполнителю">
-        <ShortList items={authors.map((author) => ({ value: author }))} />
+      <FilterDropdown
+        isShowPopup={showAuthorsPopup}
+        button={
+          <StickyButton innerRef={showAuthorsPopupButtonRef} setter={setShowAuthorsPopup}>
+            {'исполнителю'}
+          </StickyButton>
+        }
+        tab={filter?.authors?.size > 0 && filter.authors?.size}>
+        <ShortList
+          items={authors.map((author) => ({
+            value: author,
+            selected: filter?.authors?.has(author)
+          }))}
+          onItemClick={handleOnAuthorItemClick}
+        />
       </FilterDropdown>
-      <FilterDropdown name="году выпуска">
-        <RadioList items={years.map((year) => ({ value: year }))} />
+      <FilterDropdown
+        isShowPopup={showYearsPopup}
+        button={
+          <StickyButton innerRef={showYearsPopupButtonRef} setter={setShowYearsPopup}>
+            {'году выпуска'}
+          </StickyButton>
+        }>
+        <RadioList
+          items={years.map((year) => ({ value: year, checked: filter?.years === year }))}
+          onItemClick={handleOnYearsItemClick}
+        />
       </FilterDropdown>
-      <FilterDropdown name="жанру">
-        <ShortList items={genres.map((genre) => ({ value: genre }))} />
+      <FilterDropdown
+        isShowPopup={showGenresPopup}
+        button={
+          <StickyButton innerRef={showGenresPopupButtonRef} setter={setShowGenresPopup}>
+            {'жанру'}
+          </StickyButton>
+        }
+        tab={filter?.genres?.size > 0 && filter.genres?.size}>
+        <ShortList
+          items={genres.map((genre) => ({ value: genre, selected: filter?.genres?.has(genre) }))}
+          onItemClick={handleOnGenreItemClick}
+        />
       </FilterDropdown>
     </Filter>
   )

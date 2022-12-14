@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import Popup from '../popup'
-import StickyButton from '../sticky-button'
 import Tab from '../tab'
 import {
   FilterDropDownContainer,
@@ -10,9 +9,8 @@ import {
   FILTER_POPUP_CONTAINER_FALLING_INTERVAL
 } from './container'
 
-const FilterDropdown = ({ name, children, tab }) => {
+const FilterDropdown = ({ children, tab, button, isShowPopup }) => {
   const [isShowing, setIsShowing] = useState(false)
-  const [isShowPopup, setIsShowPopup] = useState(false)
 
   const popupRef = useRef(null)
 
@@ -41,7 +39,7 @@ const FilterDropdown = ({ name, children, tab }) => {
 
   return (
     <FilterDropDownContainer mouseEventsDisabled={isShowing}>
-      <StickyButton setter={setIsShowPopup}>{name}</StickyButton>
+      {button}
       <FilterPopupContainer ref={popupRef}>
         <Popup>{children}</Popup>
       </FilterPopupContainer>

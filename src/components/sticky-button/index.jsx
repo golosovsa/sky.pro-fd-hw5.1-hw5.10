@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { StickyButtonStyled } from './style'
 
-const StickyButton = ({ children, setter }) => {
+const StickyButton = ({ children, setter, innerRef }) => {
   const [active, setActive] = useState(false)
 
   const handleOnClick = () => {
@@ -10,7 +10,7 @@ const StickyButton = ({ children, setter }) => {
   }
 
   return (
-    <StickyButtonStyled active={active} onClick={handleOnClick}>
+    <StickyButtonStyled active={active} onClick={handleOnClick} ref={innerRef}>
       {children}
     </StickyButtonStyled>
   )
