@@ -7,21 +7,21 @@ export const ResponsibleLayout = createGlobalStyle`
     --layout-height: ${LAYOUT_HEIGHT};
     --layout-aspect: ${LAYOUT_ASPECT};
 
-    --page-width: ${LAYOUT_WIDTH};
-    --page-height: ${LAYOUT_HEIGHT};
+    --page-width: 100vw;
+    --page-height: calc(100vw / var(--layout-aspect));
   }
 
-  @media (orientation: landscape) {
+  /* @media (orientation: portrait) {
     :root {
         --page-width: calc(100vh * var(--layout-aspect));
         --page-height: 100vh;
     }
   }
 
-  @media (orientation: portrait) {
+  @media (orientation: landscape) {
     :root {
         --page-width: 100vw;
         --page-height: calc(100vw / var(--layout-aspect));
     }
-  }
+  } */
 `

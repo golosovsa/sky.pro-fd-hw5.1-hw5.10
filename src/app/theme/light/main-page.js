@@ -73,16 +73,40 @@ export const mainPage = {
   },
 
   popup: {
-    'background-color': PALETTE.champagne
+    'background-color': PALETTE.alphaGainsboro
   },
 
   'short-list': {
     '::-webkit-scrollbar-track': {
-      background: PALETTE.cemeteryDarkGrey
+      background: PALETTE.pampas
     },
 
     '::-webkit-scrollbar-thumb': {
       'background-color': PALETTE.black
     }
+  },
+
+  'short-list-item': {
+    color: PALETTE.black
+  },
+
+  'radio-marker-container': {
+    'border-color': PALETTE.black
+  },
+
+  'radio-marker': {
+    'background-color': PALETTE.black
+  },
+
+  'radio-item': {
+    color: PALETTE.black
+  },
+
+  'track-icon': {
+    color: PALETTE.darkGray
+  },
+
+  'track-list-item-icon': {
+    'background-color': PALETTE.whiteSmoke
   }
 }

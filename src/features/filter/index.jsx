@@ -7,9 +7,12 @@ import RadioList from '../../components/radio-list'
 import ShortList from '../../components/short-list'
 import StickyButton from '../../components/sticky-button'
 
+export const SORT_ASCENT = 'Более новые'
+export const SORT_DESCENT = 'Более старые'
+
 const FilterFeature = ({ data, updateFilter }) => {
   const [authors, setAuthors] = useState([])
-  const years = ['Более новые', 'Более старые']
+  const years = [SORT_ASCENT, SORT_DESCENT]
   const [genres, setGenres] = useState([])
   const [filter, setFilter] = useState(null)
   const [showAuthorsPopup, setShowAuthorsPopup] = useState(false)
@@ -89,7 +92,6 @@ const FilterFeature = ({ data, updateFilter }) => {
 
   const handleOnYearsItemClick = (years) => {
     setFilter({ ...filter, years })
-    console.log(years)
   }
 
   const handleOnGenreItemClick = (genre) => {

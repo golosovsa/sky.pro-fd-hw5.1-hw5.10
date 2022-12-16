@@ -98,7 +98,7 @@ export const mainPage = {
   },
 
   popup: {
-    'background-color': PALETTE.nightRider
+    'background-color': PALETTE.alphaNightRider
   },
 
   'short-list': {
@@ -131,5 +131,59 @@ export const mainPage = {
 
   'radio-item': {
     color: PALETTE.white
+  },
+
+  'track-icon': {
+    color: PALETTE.darkLiver
+  },
+
+  'track-list-item-icon': {
+    'background-color': PALETTE.nightRider
+  },
+
+  'track-list-item-name': {
+    color: PALETTE.white
+  },
+
+  'track-list-item-extra-name': {
+    color: PALETTE.darkLiver
+  },
+
+  'track-list-item-author': {
+    color: PALETTE.white
+  },
+
+  'track-list-item-album': {
+    color: PALETTE.darkLiver
+  },
+
+  'heart-icon': {
+    fill: PALETTE.transparent,
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'heart-icon-active': {
+    fill: PALETTE.dimGray,
+    color: PALETTE.white,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'track-list-item-time': {
+    color: PALETTE.darkLiver
+  },
+
+  'clock-icon': {
+    color: PALETTE.darkLiver
+  },
+
+  'track-list-header-label': {
+    color: PALETTE.darkLiver
   }
 }

@@ -4,13 +4,13 @@ import Icons from '../icons'
 import { SearchContainer } from './container'
 import { SearchInputStyled } from './style'
 
-const SearchInput = ({ setter }) => {
+const SearchInput = ({ updateSearch }) => {
   const [value, setValue] = useState('')
 
   const handleOnChange = (e) => setValue(e.target.value)
 
   useEffect(() => {
-    if (setter) setter(value)
+    if (updateSearch) updateSearch(value)
   }, [value])
 
   return (

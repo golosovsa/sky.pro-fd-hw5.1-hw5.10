@@ -22,5 +22,11 @@ export const PALETTE = {
   nightRider: '#313131',
   champagne: '#F7E7CE',
   cemeteryDarkGrey: '#4B4949',
-  lavenderPurple: '#B672FF'
+  lavenderPurple: '#B672FF',
+  alphaGainsboro: 'rgba(225, 225, 225, 0.9)',
+  alphaNightRider: 'rgba(49, 49, 49, 0.85)',
+  darkGray: '#B1B1B1',
+  whiteSmoke: '#F6F4F4',
+  dimGray: '#696969',
+  silverChalice: '#ACACAC'
 }
