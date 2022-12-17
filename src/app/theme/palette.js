@@ -28,5 +28,9 @@ export const PALETTE = {
   darkGray: '#B1B1B1',
   whiteSmoke: '#F6F4F4',
   dimGray: '#696969',
-  silverChalice: '#ACACAC'
+  silverChalice: '#ACACAC',
+  darkFader: 'linear-gradient(180deg, rgba(24, 24, 24, 0) 0%, #181818 100%)',
+  darkCharcoal: '#2E2E2E',
+  platinumGray: '#797979',
+  darkNero: '#1A1A1A'
 }

@@ -1,26 +1,20 @@
-import { Link } from 'react-router-dom'
 import Icons from '../../components/icons'
 import MainNavigation from '../../components/main-navigation'
 import MainNavigationLink from '../../components/main-navigation-link'
-import { LogOut } from '../logout'
 import { ThemeSwitcher } from '../theme-switcher'
 
 const NavigationFeature = () => {
   const permanent = (
-    <Link to="/">
+    <MainNavigationLink to="/">
       <Icons.MainLogo />
-    </Link>
+    </MainNavigationLink>
   )
 
-  const icon = <Icons.Burger />
-
   return (
-    <MainNavigation permanent={permanent} icon={icon}>
+    <MainNavigation permanent={permanent}>
       <MainNavigationLink to="/">Главное</MainNavigationLink>
       <MainNavigationLink to="/">Мои треки</MainNavigationLink>
-      <LogOut>
-        <MainNavigationLink>Выйти</MainNavigationLink>
-      </LogOut>
+      <MainNavigationLink to="/logout">Выйти</MainNavigationLink>
       <ThemeSwitcher />
     </MainNavigation>
   )

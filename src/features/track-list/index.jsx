@@ -8,7 +8,7 @@ import {
 } from '../../app/services/favorites'
 import { useEffect, useState } from 'react'
 
-const TrackListFeature = ({ data, onSelectTrack }) => {
+const TrackListFeature = ({ data, onSelectTrack, selectedTrack }) => {
   const { data: favorites } = useGetFavoritesQuery()
   const [addFavorite] = useAddFavoriteMutation()
   const [deleteFavorite] = useDeleteFavoriteMutation()
@@ -42,6 +42,7 @@ const TrackListFeature = ({ data, onSelectTrack }) => {
             onTrackItemClick={handleOnItemClick}
             onLikeClick={handleOnLikeClick}
             liked={favoriteSet.has(item.id) ? 'true' : undefined}
+            selected={selectedTrack && selectedTrack.id === item.id ? 'true' : undefined}
           />
         ))}
     </TrackList>

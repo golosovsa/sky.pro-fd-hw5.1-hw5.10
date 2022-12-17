@@ -175,6 +175,24 @@ export const mainPage = {
     }
   },
 
+  'broken-heart-icon': {
+    fill: PALETTE.transparent,
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'broken-heart-icon-active': {
+    fill: PALETTE.dimGray,
+    color: PALETTE.white,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
   'track-list-item-time': {
     color: PALETTE.darkLiver
   },
@@ -185,5 +203,101 @@ export const mainPage = {
 
   'track-list-header-label': {
     color: PALETTE.darkLiver
+  },
+
+  'player-fader': {
+    background: PALETTE.darkFader
+  },
+
+  'player-progress-container': {
+    'background-color': PALETTE.darkCharcoal
+  },
+
+  'player-progress': {
+    'background-color': PALETTE.darkLiver
+  },
+
+  'player-panel': {
+    'background-color': PALETTE.codGray
+  },
+
+  'prev-icon': {
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'play-icon': {
+    color: PALETTE.lightSilver,
+
+    ':hover': { color: PALETTE.dimGray }
+  },
+
+  'stop-icon': {
+    color: PALETTE.lightSilver,
+
+    ':hover': { color: PALETTE.dimGray }
+  },
+
+  'next-icon': {
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'repeat-icon': {
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'shuffle-icon': {
+    color: PALETTE.dimGray,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'repeat-icon-active': {
+    color: PALETTE.white,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'shuffle-icon-active': {
+    color: PALETTE.white,
+
+    ':hover': {
+      color: PALETTE.silverChalice
+    }
+  },
+
+  'player-panel-text': {
+    color: PALETTE.white
+  },
+
+  'mute-icon': {
+    color: PALETTE.white
+  },
+
+  'player-panel-mute-container': {
+    'background-color': PALETTE.platinumGray
+  },
+
+  'player-panel-mute': {
+    'background-color': PALETTE.white,
+    '::after': {
+      'border-color': PALETTE.white,
+      'background-color': PALETTE.darkNero
+    }
   }
 }

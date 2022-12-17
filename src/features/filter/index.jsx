@@ -21,6 +21,9 @@ const FilterFeature = ({ data, updateFilter }) => {
   const showAuthorsPopupButtonRef = useRef(null)
   const showYearsPopupButtonRef = useRef(null)
   const showGenresPopupButtonRef = useRef(null)
+  const authorsPopupRef = useRef(null)
+  const yearsPopupRef = useRef(null)
+  const genresPopupRef = useRef(null)
 
   const dispatchClickPopup = (popupRef) => {
     const { current } = popupRef
@@ -28,22 +31,65 @@ const FilterFeature = ({ data, updateFilter }) => {
     current.click()
   }
 
+  const isMouseIn = (event, reference) => {
+    const { x, y, width, height } = reference.current.getBoundingClientRect()
+    const { clientX, clientY } = event
+
+    if (clientX >= x && clientX <= x + width && clientY >= y && clientY <= y + height) {
+      return true
+    }
+
+    return false
+  }
+
+  const handleGlobalClick = (event) => {
+    if (
+      showYearsPopup &&
+      !isMouseIn(event, yearsPopupRef) &&
+      !isMouseIn(event, showYearsPopupButtonRef)
+    ) {
+      dispatchClickPopup(showYearsPopupButtonRef)
+    }
+
+    if (
+      showGenresPopup &&
+      !isMouseIn(event, genresPopupRef) &&
+      !isMouseIn(event, showGenresPopupButtonRef)
+    ) {
+      dispatchClickPopup(showGenresPopupButtonRef)
+    }
+
+    if (
+      showAuthorsPopup &&
+      !isMouseIn(event, authorsPopupRef) &&
+      !isMouseIn(event, showAuthorsPopupButtonRef)
+    ) {
+      dispatchClickPopup(showAuthorsPopupButtonRef)
+    }
+  }
+
   useEffect(() => {
     if (!showAuthorsPopup) return
     if (showYearsPopup) dispatchClickPopup(showYearsPopupButtonRef)
     if (showGenresPopup) dispatchClickPopup(showGenresPopupButtonRef)
+    window.addEventListener('mouseup', handleGlobalClick, true)
+    return () => window.removeEventListener('mouseup', handleGlobalClick, true)
   }, [showAuthorsPopup])
 
   useEffect(() => {
     if (!showYearsPopup) return
     if (showAuthorsPopup) dispatchClickPopup(showAuthorsPopupButtonRef)
     if (showGenresPopup) dispatchClickPopup(showGenresPopupButtonRef)
+    window.addEventListener('mouseup', handleGlobalClick)
+    return () => window.removeEventListener('mouseup', handleGlobalClick)
   }, [showYearsPopup])
 
   useEffect(() => {
     if (!showGenresPopup) return
     if (showAuthorsPopup) dispatchClickPopup(showAuthorsPopupButtonRef)
     if (showYearsPopup) dispatchClickPopup(showYearsPopupButtonRef)
+    window.addEventListener('mouseup', handleGlobalClick)
+    return () => window.removeEventListener('mouseup', handleGlobalClick)
   }, [showGenresPopup])
 
   useEffect(() => {
@@ -115,7 +161,8 @@ const FilterFeature = ({ data, updateFilter }) => {
             {'исполнителю'}
           </StickyButton>
         }
-        tab={filter?.authors?.size > 0 && filter.authors?.size}>
+        tab={filter?.authors?.size > 0 && filter.authors?.size}
+        innerPopupRef={authorsPopupRef}>
         <ShortList
           items={authors.map((author) => ({
             value: author,
@@ -130,7 +177,8 @@ const FilterFeature = ({ data, updateFilter }) => {
           <StickyButton innerRef={showYearsPopupButtonRef} setter={setShowYearsPopup}>
             {'году выпуска'}
           </StickyButton>
-        }>
+        }
+        innerPopupRef={yearsPopupRef}>
         <RadioList
           items={years.map((year) => ({ value: year, checked: filter?.years === year }))}
           onItemClick={handleOnYearsItemClick}
@@ -143,7 +191,8 @@ const FilterFeature = ({ data, updateFilter }) => {
             {'жанру'}
           </StickyButton>
         }
-        tab={filter?.genres?.size > 0 && filter.genres?.size}>
+        tab={filter?.genres?.size > 0 && filter.genres?.size}
+        innerPopupRef={genresPopupRef}>
         <ShortList
           items={genres.map((genre) => ({ value: genre, selected: filter?.genres?.has(genre) }))}
           onItemClick={handleOnGenreItemClick}

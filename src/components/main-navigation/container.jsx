@@ -4,7 +4,7 @@ export const BurgerIconContainer = styled.div`
   margin-top: ${(props) => props.theme.height(10)};
 `
 
-export const BurgerContainer = styled.nav`
+export const BurgerContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-content: flex-start;

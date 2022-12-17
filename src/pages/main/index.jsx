@@ -6,6 +6,7 @@ import LinksFeature from '../../features/links'
 import NavigationFeature from '../../features/navigation'
 import FilterFeature, { SORT_DESCENT } from '../../features/filter'
 import TrackList from '../../features/track-list'
+import Player from '../../components/player'
 
 export const Main = () => {
   const {
@@ -64,5 +65,10 @@ export const Main = () => {
   )
   const aside = <LinksFeature />
 
-  return <MainLayout navigation={navigation} content={content} aside={aside} />
+  return (
+    <>
+      <MainLayout navigation={navigation} content={content} aside={aside} />
+      <Player />
+    </>
+  )
 }

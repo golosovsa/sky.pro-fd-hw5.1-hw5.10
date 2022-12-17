@@ -11,4 +11,6 @@ export const BurgerIcon = styled(SVGBurger)`
   &:active {
     transform: scaleY(1.4);
   }
+  margin-top: ${(props) => props.theme.height(20)};
+  margin-bottom: ${(props) => props.theme.height(10)};
 `
