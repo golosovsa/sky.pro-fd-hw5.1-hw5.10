@@ -60,10 +60,10 @@ export const Main = () => {
     <>
       <SearchInput updateSearch={updateSearch} />
       <FilterFeature data={tracks} updateFilter={updateFilter} />
-      <TrackList data={searchedData ? searchedData : []} />
+      <TrackList data={searchedData ? searchedData : []} isFetching={isTracksLoading} />
     </>
   )
-  const aside = <LinksFeature />
+  const aside = <LinksFeature isFetching={isTracksLoading} />
 
   return (
     <>

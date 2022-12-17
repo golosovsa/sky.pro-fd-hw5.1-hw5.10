@@ -7,8 +7,9 @@ import {
   useGetFavoritesQuery
 } from '../../app/services/favorites'
 import { useEffect, useState } from 'react'
+import TrackListItemSkeleton from '../../components/track-list-item-skeleton'
 
-const TrackListFeature = ({ data, onSelectTrack, selectedTrack }) => {
+const TrackListFeature = ({ data, onSelectTrack, selectedTrack, isFetching }) => {
   const { data: favorites } = useGetFavoritesQuery()
   const [addFavorite] = useAddFavoriteMutation()
   const [deleteFavorite] = useDeleteFavoriteMutation()
@@ -45,6 +46,7 @@ const TrackListFeature = ({ data, onSelectTrack, selectedTrack }) => {
             selected={selectedTrack && selectedTrack.id === item.id ? 'true' : undefined}
           />
         ))}
+      {isFetching && [...new Array(20).keys()].map((key) => <TrackListItemSkeleton key={key} />)}
     </TrackList>
   )
 }

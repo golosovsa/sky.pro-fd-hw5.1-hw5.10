@@ -28,4 +28,14 @@ export const SkeletonStyled = styled.div`
         }
     `} ${(props) => props.shineDuration} infinite linear;
   background-size: ${(props) => props.theme.width(LAYOUT_WIDTH * 3)} 1px;
+  ${(props) =>
+    props.height &&
+    css`
+      height: ${props.theme.height(props.height)};
+    `}
+  ${(props) =>
+    props.width &&
+    css`
+      height: ${props.theme.width(props.width)};
+    `}
 `
