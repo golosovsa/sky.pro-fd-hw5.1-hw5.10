@@ -32,5 +32,6 @@ export const PALETTE = {
   darkFader: 'linear-gradient(180deg, rgba(24, 24, 24, 0) 0%, #181818 100%)',
   darkCharcoal: '#2E2E2E',
   platinumGray: '#797979',
-  darkNero: '#1A1A1A'
+  darkNero: '#1A1A1A',
+  faintHighLight: 'rgba(255, 255, 255, 0.03)'
 }

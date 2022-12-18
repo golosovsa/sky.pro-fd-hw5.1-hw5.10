@@ -5,8 +5,8 @@ import SearchInput from '../../components/search'
 import LinksFeature from '../../features/links'
 import NavigationFeature from '../../features/navigation'
 import FilterFeature, { SORT_DESCENT } from '../../features/filter'
-import TrackList from '../../features/track-list'
-import Player from '../../components/player'
+import TrackListFeature from '../../features/track-list'
+import PlayerFeature from '../../features/player'
 
 export const Main = () => {
   const {
@@ -20,9 +20,28 @@ export const Main = () => {
   const [search, updateSearch] = useState(null)
   const [searchedData, setSearchedData] = useState(null)
 
-  useEffect(() => {
-    console.log('isTracksLoading', isTracksLoading)
-  }, [isTracksLoading])
+  const [track, setTrack] = useState(null)
+
+  const handleChangeTrack = (event) => {
+    const { eventName, isShuffle } = event
+    if (isShuffle) {
+      const randomIndex = Math.floor(Math.random() * searchedData.length)
+      setTrack(searchedData[randomIndex])
+      return
+    }
+    if (eventName === 'next') {
+      const nextIndex = (searchedData.indexOf(track) + 1) % searchedData.length
+      setTrack(searchedData[nextIndex])
+      return
+    }
+    if (eventName === 'prev') {
+      const prevIndex = (searchedData.indexOf(track) - 1) % searchedData.length
+      setTrack(searchedData[prevIndex < 0 ? searchedData.length - 1 : prevIndex])
+      return
+    }
+
+    console.error('Unknown event name')
+  }
 
   useEffect(() => {
     if (!filteredData) return
@@ -60,7 +79,12 @@ export const Main = () => {
     <>
       <SearchInput updateSearch={updateSearch} />
       <FilterFeature data={tracks} updateFilter={updateFilter} />
-      <TrackList data={searchedData ? searchedData : []} isFetching={isTracksLoading} />
+      <TrackListFeature
+        data={searchedData ? searchedData : []}
+        isFetching={isTracksLoading}
+        onSelectTrack={setTrack}
+        selectedTrack={track}
+      />
     </>
   )
   const aside = <LinksFeature isFetching={isTracksLoading} />
@@ -68,7 +92,7 @@ export const Main = () => {
   return (
     <>
       <MainLayout navigation={navigation} content={content} aside={aside} />
-      <Player />
+      <PlayerFeature track={track} changeTrack={handleChangeTrack} />
     </>
   )
 }

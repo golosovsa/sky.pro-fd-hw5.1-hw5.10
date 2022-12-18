@@ -137,6 +137,10 @@ export const mainPage = {
     color: PALETTE.darkLiver
   },
 
+  'track-list-item-selected': {
+    'background-color': PALETTE.faintHighLight
+  },
+
   'track-list-item-icon': {
     'background-color': PALETTE.nightRider
   },

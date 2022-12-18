@@ -36,6 +36,6 @@ export const SkeletonStyled = styled.div`
   ${(props) =>
     props.width &&
     css`
-      height: ${props.theme.width(props.width)};
+      width: ${props.theme.width(props.width)};
     `}
 `

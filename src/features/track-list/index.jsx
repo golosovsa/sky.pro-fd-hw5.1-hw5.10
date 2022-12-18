@@ -43,7 +43,7 @@ const TrackListFeature = ({ data, onSelectTrack, selectedTrack, isFetching }) =>
             onTrackItemClick={handleOnItemClick}
             onLikeClick={handleOnLikeClick}
             liked={favoriteSet.has(item.id) ? 'true' : undefined}
-            selected={selectedTrack && selectedTrack.id === item.id ? 'true' : undefined}
+            selected={selectedTrack && selectedTrack.id === item.id ? true : undefined}
           />
         ))}
       {isFetching && [...new Array(20).keys()].map((key) => <TrackListItemSkeleton key={key} />)}

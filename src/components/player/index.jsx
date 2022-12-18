@@ -1,42 +1,26 @@
 import PlayerFader from '../player-fader'
 import PlayerPanel from '../player-panel'
-import PlayerProgress from '../player-progress'
 import { PlayerContainer } from './container'
-import Icons from '../icons'
-import PlayerPanelMute from '../player-panel-mute'
-import { useState } from 'react'
 
-const Player = () => {
-  const [loud, setLoud] = useState(30)
-  const [progress, setProgress] = useState(30)
+const Player = ({ progress, controlButtons, likeButtons, track, muteControl }) => {
+  if (!track) {
+    return (
+      <PlayerContainer>
+        <PlayerFader />
+      </PlayerContainer>
+    )
+  }
+
   return (
     <PlayerContainer>
       <PlayerFader />
-      <PlayerProgress progress={progress} setProgress={setProgress} />
+      {progress}
       <PlayerPanel
-        buttons={
-          <>
-            <Icons.Prev />
-            <Icons.Play />
-            <Icons.Next />
-            <Icons.Repeat />
-            <Icons.Shuffle />
-          </>
-        }
-        likeButtons={
-          <>
-            <Icons.Heart />
-            <Icons.BrokenHeart />
-          </>
-        }
-        name="test track name"
-        author="test author name"
-        muteControl={
-          <>
-            <Icons.Mute />
-            <PlayerPanelMute loud={loud} setLoud={setLoud} />
-          </>
-        }
+        buttons={controlButtons}
+        likeButtons={likeButtons}
+        name={track.name}
+        author={track.author}
+        muteControl={muteControl}
       />
     </PlayerContainer>
   )
