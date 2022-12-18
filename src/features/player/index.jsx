@@ -1,6 +1,11 @@
 import { useEffect } from 'react'
 import { useRef, useState } from 'react'
 import { getPlayerSettings, storePlayerSettings } from '../../app/player/storage'
+import {
+  useAddFavoriteMutation,
+  useDeleteFavoriteMutation,
+  useGetFavoritesQuery
+} from '../../app/services/favorites'
 import Audio from '../../components/Audio'
 import Icons from '../../components/icons'
 import Player from '../../components/player'
@@ -16,8 +21,26 @@ const PlayerFeature = ({ track, changeTrack }) => {
   const [isStopped, setIsStopped] = useState(false)
   const [isRepeat, setIsRepeat] = useState(undefined)
   const [isShuffle, setIsShuffle] = useState(undefined)
+  const { data: favorites } = useGetFavoritesQuery()
+  const [addFavorite] = useAddFavoriteMutation()
+  const [deleteFavorite] = useDeleteFavoriteMutation()
+  const [favoriteSet, setFavoriteSet] = useState(new Set())
 
   const audioRef = useRef(null)
+
+  const handleOnLikeClick = (item) => {
+    const { id } = item
+    if (!favoriteSet.has(id)) {
+      addFavorite(id)
+    }
+  }
+
+  const handleOnDislikeClick = (item) => {
+    const { id } = item
+    if (favoriteSet.has(id)) {
+      deleteFavorite(id)
+    }
+  }
 
   const handleEnded = () => {
     if (isRepeat) {
@@ -139,6 +162,11 @@ const PlayerFeature = ({ track, changeTrack }) => {
     setIsShuffle(settings.isShuffle)
   }, [track])
 
+  useEffect(() => {
+    if (!favorites) return
+    setFavoriteSet(new Set(favorites.map((item) => item.id)))
+  }, [favorites])
+
   const progressComponent = isCanPlay ? (
     <PlayerProgress progress={progress} setProgress={handleSetPosition} />
   ) : (
@@ -163,8 +191,14 @@ const PlayerFeature = ({ track, changeTrack }) => {
   )
   const likeButtons = (
     <>
-      <Icons.Heart />
-      <Icons.BrokenHeart />
+      <Icons.Heart
+        active={track && favoriteSet && favoriteSet.has(track.id) ? 'true' : undefined}
+        onClick={() => handleOnLikeClick(track)}
+      />
+      <Icons.BrokenHeart
+        active={track && favoriteSet && !favoriteSet.has(track.id) ? 'true' : undefined}
+        onClick={() => handleOnDislikeClick(track)}
+      />
     </>
   )
   const muteControl = (
