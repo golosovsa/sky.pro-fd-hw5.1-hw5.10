@@ -30,8 +30,12 @@ export const PALETTE = {
   dimGray: '#696969',
   silverChalice: '#ACACAC',
   darkFader: 'linear-gradient(180deg, rgba(24, 24, 24, 0) 0%, #181818 100%)',
+  lightFader: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)',
   darkCharcoal: '#2E2E2E',
   platinumGray: '#797979',
   darkNero: '#1A1A1A',
-  faintHighLight: 'rgba(255, 255, 255, 0.03)'
+  faintHighLight: 'rgba(255, 255, 255, 0.03)',
+  faintHighDark: 'rgba(0, 0, 0, 0.03)',
+  doveGray: '#707070',
+  silver: '#C4C4C4'
 }

@@ -21,7 +21,7 @@ export const ContentContainer = styled.main`
 `
 
 export const ASideContainer = styled.aside`
-  padding-top: ${(props) => props.theme.height(428)};
+  padding-top: ${(props) => props.theme.height(328)};
   padding-left: ${(props) => props.theme.width(7)};
   display: flex;
   flex-flow: column nowrap;
