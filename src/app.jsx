@@ -15,10 +15,16 @@ function App() {
 
   const [refresh, { isLoading: isRefreshFetching, isError: isRefreshError }] = useRefreshMutation()
 
-  useEffect(() => {
+  const handleRefreshAccess = () => {
     if (isRefreshExists()) {
       refresh({ refresh: getRefresh() })
     }
+  }
+
+  useEffect(() => {
+    handleRefreshAccess()
+    const timer = setInterval(handleRefreshAccess, 300000)
+    return () => clearInterval(timer)
   }, [])
 
   const content =

@@ -15,13 +15,13 @@ const LinksFeature = ({ isFetching }) => {
 
   return (
     <>
-      <LinkStyled to="/">
+      <LinkStyled to="/collection/1">
         <Icons.PlayListOfTheDay />
       </LinkStyled>
-      <LinkStyled to="/">
+      <LinkStyled to="/collection/2">
         <Icons.OneHundredDanceHits />
       </LinkStyled>
-      <LinkStyled to="/">
+      <LinkStyled to="/collection/3">
         <Icons.IndieCharge />
       </LinkStyled>
     </>

@@ -14,6 +14,8 @@ import { PrevIcon } from './prev'
 import { RepeatIcon } from './repeat'
 import { SearchIcon } from './search'
 import { ShuffleIcon } from './shuffle'
+import { SmileCryingIcon } from './smile-crying'
+import { SmileSadIcon } from './smile-sad'
 import { StopIcon } from './stop'
 import { ThemeDarkIcon } from './theme-dark'
 import { ThemeLightIcon } from './theme-light'
@@ -39,7 +41,9 @@ const Icons = {
   Next: NextIcon,
   Repeat: RepeatIcon,
   Shuffle: ShuffleIcon,
-  Mute: MuteIcon
+  Mute: MuteIcon,
+  SmileCrying: SmileCryingIcon,
+  SmileSad: SmileSadIcon
 }
 
 export default Icons

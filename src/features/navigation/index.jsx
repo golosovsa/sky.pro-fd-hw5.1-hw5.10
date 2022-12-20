@@ -13,7 +13,7 @@ const NavigationFeature = () => {
   return (
     <MainNavigation permanent={permanent}>
       <MainNavigationLink to="/">Главное</MainNavigationLink>
-      <MainNavigationLink to="/">Мои треки</MainNavigationLink>
+      <MainNavigationLink to="/favorites">Мои треки</MainNavigationLink>
       <MainNavigationLink to="/logout">Выйти</MainNavigationLink>
       <ThemeSwitcher />
     </MainNavigation>

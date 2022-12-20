@@ -217,9 +217,11 @@ const PlayerFeature = ({ track, changeTrack }) => {
         muteControl={muteControl}
         track={track}
       />
-      <Audio src={track?.track_file} ref={audioRef} />
+      <Audio src={track?.track_file} forwardRef={audioRef} />
     </>
   )
 }
+
+//track?.track_file
 
 export default PlayerFeature

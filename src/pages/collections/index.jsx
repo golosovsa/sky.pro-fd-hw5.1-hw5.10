@@ -1,26 +1,39 @@
 import { useEffect, useState } from 'react'
-import { useGetTracksQuery } from '../../app/services/tracks'
+import { Navigate, useParams } from 'react-router-dom'
+import { useGetSelectionQuery } from '../../app/services/selections'
 import MainLayout from '../../components/main-layout'
 import SearchInput from '../../components/search'
+import Title from '../../components/title'
 import LinksFeature from '../../features/links'
 import NavigationFeature from '../../features/navigation'
-import FilterFeature, { SORT_DESCENT } from '../../features/filter'
-import TrackListFeature from '../../features/track-list'
 import PlayerFeature from '../../features/player'
-import Title from '../../components/title'
+import TrackListFeature from '../../features/track-list'
 
-export const Main = () => {
+const COLLECTIONS = {
+  1: {
+    title: 'Плейлист дня'
+  },
+  2: {
+    title: '100 танцевальных хитов'
+  },
+  3: {
+    title: 'Инди заряд'
+  }
+}
+
+const Collection = () => {
+  const { id } = useParams()
+
+  if (!COLLECTIONS[id]) {
+    return <Navigate to="*" />
+  }
   const {
     data: tracks,
     isLoading: isTracksLoading,
     isSuccess: isTracksSuccess
-  } = useGetTracksQuery()
-
-  const [filter, updateFilter] = useState(null)
-  const [filteredData, setFilteredData] = useState(null)
+  } = useGetSelectionQuery(id)
   const [search, updateSearch] = useState(null)
   const [searchedData, setSearchedData] = useState(null)
-
   const [track, setTrack] = useState(null)
 
   const handleChangeTrack = (event) => {
@@ -46,42 +59,22 @@ export const Main = () => {
   }
 
   useEffect(() => {
-    if (!filteredData) return
+    if (!tracks) return
     if (!search) {
-      setSearchedData(filteredData)
+      setSearchedData(tracks)
       return
     }
-    const searched = filteredData.filter((item) => {
+    const searched = tracks.filter((item) => {
       return item.name.toLowerCase().includes(search.toLowerCase())
     })
     setSearchedData(searched)
-  }, [filteredData, search])
-
-  useEffect(() => {
-    if (!tracks) return
-    if (!filter) {
-      setFilteredData(tracks)
-      return
-    }
-    const { authors, years, genres } = filter
-    let filtered = [...tracks]
-    if (authors.size > 0) filtered = filtered.filter((track) => authors.has(track.author))
-    if (genres.size > 0) filtered = filtered.filter((track) => genres.has(track.genre))
-    filtered = filtered.sort((a, b) => {
-      const dateA = Date.parse(a.release_date)
-      const dateB = Date.parse(b.release_date)
-      return dateA > dateB ? -1 : dateA < dateB ? 1 : 0
-    })
-    if (years && years === SORT_DESCENT) filtered = filtered.reverse()
-    setFilteredData(filtered)
-  }, [filter, isTracksSuccess])
+  }, [tracks, search, isTracksSuccess])
 
   const navigation = <NavigationFeature />
   const content = (
     <>
       <SearchInput updateSearch={updateSearch} />
-      <Title>Треки</Title>
-      <FilterFeature data={tracks} updateFilter={updateFilter} />
+      <Title>{COLLECTIONS[id].title}</Title>
       <TrackListFeature
         data={searchedData ? searchedData : []}
         isFetching={isTracksLoading}
@@ -99,3 +92,5 @@ export const Main = () => {
     </>
   )
 }
+
+export default Collection

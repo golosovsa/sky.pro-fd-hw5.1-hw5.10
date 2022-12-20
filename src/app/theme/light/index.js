@@ -1,3 +1,4 @@
 import { mainPage } from './main-page'
+import { errorPage } from './error-page'
 
-export default { ...mainPage }
+export default { ...mainPage, ...errorPage }
