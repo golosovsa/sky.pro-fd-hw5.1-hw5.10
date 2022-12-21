@@ -1,6 +1,7 @@
 env:
   browser: true
   es2021: true
+  jest: true
 extends:
   - eslint:recommended
   - plugin:react/recommended
@@ -15,12 +16,12 @@ parserOptions:
 plugins:
   - react
   - prettier
-rules: 
+rules:
   react/jsx-filename-extension:
     - 1
     - extensions:
-      - .js
-      - .jsx
+        - .js
+        - .jsx
   react/prop-types: 0
   react/destructuring-assignment:
     - 0

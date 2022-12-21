@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Audio /> Snapshot test should render successfully and match snapshot 1`] = `
+<div>
+  <audio
+    class="sc-bcXHqe xuMZq"
+  />
+</div>
+`;
+
+exports[`<audio /> should render successfully and match snapshot 1`] = `
+<div>
+  <audio
+    class="sc-bcXHqe xuMZq"
+  />
+</div>
+`;
