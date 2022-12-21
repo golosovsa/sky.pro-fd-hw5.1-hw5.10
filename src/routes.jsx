@@ -1,5 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary'
 import { Routes, Route } from 'react-router-dom'
+import LoadingError from './components/loading-error'
 import { ProtectedRoute } from './components/protected-route'
 import Collection from './pages/collections'
 import Favorites from './pages/favorites'
@@ -10,7 +11,7 @@ import NotFound from './pages/not-found'
 
 export const AppRoutes = ({ isAuth }) => {
   return (
-    <ErrorBoundary FallbackComponent={<h1>123 !!! 123</h1>}>
+    <ErrorBoundary FallbackComponent={LoadingError} onReset={() => window.location.reload(false)}>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />

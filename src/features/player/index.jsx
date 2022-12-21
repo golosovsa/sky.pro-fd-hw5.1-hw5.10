@@ -6,7 +6,7 @@ import {
   useDeleteFavoriteMutation,
   useGetFavoritesQuery
 } from '../../app/services/favorites'
-import Audio from '../../components/Audio'
+import Audio from '../../components/audio'
 import Icons from '../../components/icons'
 import Player from '../../components/player'
 import PlayerPanelMute from '../../components/player-panel-mute'

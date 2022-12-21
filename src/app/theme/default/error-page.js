@@ -11,5 +11,13 @@ export const errorPage = {
 
   'not-found-text': {
     color: PALETTE.darkLiver
+  },
+
+  'loading-error-header': {
+    color: PALETTE.black
+  },
+
+  'loading-error-text': {
+    color: PALETTE.black
   }
 }
