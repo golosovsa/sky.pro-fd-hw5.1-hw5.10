@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioList /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <RadioItem
+    checked={true}
+    onClick={[Function]}
+  >
+    value1
+  </RadioItem>
+  <RadioItem
+    checked={true}
+    onClick={[Function]}
+  >
+    value2
+  </RadioItem>
+  <RadioItem
+    checked={true}
+    onClick={[Function]}
+  >
+    value3
+  </RadioItem>
+</styled.div>
+`;

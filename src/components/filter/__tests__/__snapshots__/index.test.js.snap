@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Filter /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.p>
+    Искать по:
+  </styled.p>
+  <styled.div>
+    123
+  </styled.div>
+</styled.div>
+`;

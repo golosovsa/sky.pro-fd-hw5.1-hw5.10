@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Player /> Snapshot test should render successfully and match snapshot if track defined 1`] = `
+<styled.div>
+  <styled.div />
+  progress
+  <PlayerPanel
+    author="author"
+    buttons="control buttons"
+    likeButtons="like buttons"
+    muteControl="mute control"
+    name="name"
+  />
+</styled.div>
+`;
+
+exports[`<Player /> Snapshot test should render successfully and match snapshot if track undefined 1`] = `
+<styled.div>
+  <styled.div />
+</styled.div>
+`;

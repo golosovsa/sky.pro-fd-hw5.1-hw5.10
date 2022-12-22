@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorItem /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div
+  isHidden={false}
+  onClick={[Function]}
+>
+  <p />
+  <p />
+  <p>
+    X
+  </p>
+</styled.div>
+`;

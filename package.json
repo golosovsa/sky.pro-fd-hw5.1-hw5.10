@@ -2,12 +2,16 @@
   "name": "sky.pro-fd-hw5.1-hw5.10",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "clearMocks": true
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "async-mutex": "^0.4.0",
+    "jest-styled-components": "^7.1.1",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -15,6 +19,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
+    "react-test-renderer": "^18.2.0",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
@@ -50,6 +55,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
+    "msw": "^0.49.2",
     "prettier": "2.8.0"
   }
 }

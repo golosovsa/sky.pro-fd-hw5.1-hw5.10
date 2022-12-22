@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorList /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <ErrorItem
+    error={1}
+    message={1}
+  />
+  <ErrorItem
+    error={2}
+    message={2}
+  />
+  <ErrorItem
+    error={3}
+    message={3}
+  />
+</styled.div>
+`;

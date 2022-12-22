@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioList /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.div />
+  children
+</styled.div>
+`;
+
+exports[`<RadioList /> Snapshot test should render successfully and match snapshot is checked 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div />
+  </styled.div>
+  children
+</styled.div>
+`;

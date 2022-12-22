@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackListItem /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div
+  onClick={[Function]}
+>
+  <TrackListItemIcon />
+  <TrackListItemName
+    name="name"
+  />
+  <styled.p>
+    author
+  </styled.p>
+  <styled.p>
+    album
+  </styled.p>
+  <Styled(Component)
+    onClick={[Function]}
+  />
+  <styled.p>
+    NaN:NaN
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<TrackListItem /> Snapshot test should render successfully and match snapshot is liked 1`] = `
+<styled.div
+  onClick={[Function]}
+>
+  <TrackListItemIcon />
+  <TrackListItemName
+    name="name"
+  />
+  <styled.p>
+    author
+  </styled.p>
+  <styled.p>
+    album
+  </styled.p>
+  <Styled(Component)
+    active={true}
+    onClick={[Function]}
+  />
+  <styled.p>
+    NaN:NaN
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<TrackListItem /> Snapshot test should render successfully and match snapshot is selected 1`] = `
+<styled.div
+  onClick={[Function]}
+  selected={true}
+>
+  <TrackListItemIcon />
+  <TrackListItemName
+    name="name"
+  />
+  <styled.p>
+    author
+  </styled.p>
+  <styled.p>
+    album
+  </styled.p>
+  <Styled(Component)
+    onClick={[Function]}
+  />
+  <styled.p>
+    NaN:NaN
+  </styled.p>
+</styled.div>
+`;

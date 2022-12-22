@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainLayout /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.section>
+    navigation
+  </styled.section>
+  <styled.main>
+    content
+  </styled.main>
+  <styled.aside>
+    aside
+  </styled.aside>
+</styled.div>
+`;

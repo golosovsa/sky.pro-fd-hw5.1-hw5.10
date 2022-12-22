@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginForm /> Snapshot test should render inputs and buttons and disabled successfully and match snapshot 1`] = `
+<styled.div
+  disabled={true}
+>
+  <styled.form
+    onSubmit={[Function]}
+  >
+    <styled.div>
+      <Styled(Component) />
+    </styled.div>
+    <styled.fieldset
+      disabled={true}
+    >
+      123
+    </styled.fieldset>
+    <styled.fieldset
+      disabled={true}
+    >
+      123
+    </styled.fieldset>
+  </styled.form>
+</styled.div>
+`;
+
+exports[`<LoginForm /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div
+  disabled={false}
+>
+  <styled.form
+    onSubmit={[Function]}
+  >
+    <styled.div>
+      <Styled(Component) />
+    </styled.div>
+    <styled.fieldset
+      disabled={false}
+    />
+    <styled.fieldset
+      disabled={false}
+    />
+  </styled.form>
+</styled.div>
+`;

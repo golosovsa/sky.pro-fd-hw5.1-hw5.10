@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadingError /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.img />
+  <styled.div>
+    <styled.h1>
+      Ошибка загрузки
+    </styled.h1>
+    <styled.p>
+      Проверьте подключение к сети и повторите попытку
+    </styled.p>
+  </styled.div>
+  <styled.div>
+    <styled.input
+      value="Повторить"
+    />
+  </styled.div>
+</styled.div>
+`;

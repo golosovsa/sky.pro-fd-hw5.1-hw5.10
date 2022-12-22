@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchInputStyled /> Snapshot test should render successfully and match snapshot 1`] = `<SearchInput />`;

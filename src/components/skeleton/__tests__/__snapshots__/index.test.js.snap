@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Skeleton /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div
+  animationOffset={0}
+  fill="true"
+  shineDuration="3s"
+/>
+`;
+
+exports[`<Skeleton /> Snapshot test should render successfully and match snapshot is full 1`] = `
+<styled.div
+  animationOffset={100}
+  full="true"
+  shineDuration="3s"
+/>
+`;
+
+exports[`<Skeleton /> Snapshot test should render successfully and match snapshot is width and/or height 1`] = `
+<styled.div
+  animationOffset={0}
+  fill="true"
+  height={200}
+  shineDuration="3s"
+  width={200}
+/>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackListItemSkeleton /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.div>
+    <Skeleton
+      animationOffset={294}
+    />
+  </styled.div>
+  <Skeleton
+    animationOffset={362}
+    height={18}
+    width={396}
+  />
+  <Skeleton
+    animationOffset={775}
+    height={18}
+    width={304}
+  />
+  <Skeleton
+    animationOffset={1096}
+    height={18}
+    width={229}
+  />
+</styled.div>
+`;

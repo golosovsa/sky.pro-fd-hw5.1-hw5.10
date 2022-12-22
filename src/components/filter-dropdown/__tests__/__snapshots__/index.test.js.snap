@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterDropdown /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div
+  mouseEventsDisabled={false}
+>
+  <styled.div>
+    <styled.div>
+      123
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FilterDropdown /> Snapshot test with tab and button should render successfully and match snapshot 1`] = `
+<styled.div
+  mouseEventsDisabled={false}
+>
+  123
+  <styled.div>
+    <styled.div>
+      123
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <styled.p>
+      123
+    </styled.p>
+  </styled.div>
+</styled.div>
+`;

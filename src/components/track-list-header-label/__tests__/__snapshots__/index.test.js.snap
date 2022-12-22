@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackListHeaderLabel /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.p>
+  children
+</styled.p>
+`;

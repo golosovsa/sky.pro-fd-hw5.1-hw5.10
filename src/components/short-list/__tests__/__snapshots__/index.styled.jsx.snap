@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShortList /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  <styled.p
+    onClick={[Function]}
+  >
+    value1
+  </styled.p>
+  <styled.p
+    onClick={[Function]}
+  >
+    value2
+  </styled.p>
+  <styled.p
+    onClick={[Function]}
+  >
+    value3
+  </styled.p>
+</styled.div>
+`;

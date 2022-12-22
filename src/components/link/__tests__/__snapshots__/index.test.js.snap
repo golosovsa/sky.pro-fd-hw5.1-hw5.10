@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> Snapshot test should render successfully and match snapshot 1`] = `
+<Styled(Link)>
+  123
+</Styled(Link)>
+`;

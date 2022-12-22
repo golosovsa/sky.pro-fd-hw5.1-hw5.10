@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginInput /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.input
+  placeholder={123}
+  value={123}
+/>
+`;

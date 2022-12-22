@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackListItemName /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.p>
+  name
+  <styled.p>
+    (
+    extra name
+    )
+  </styled.p>
+</styled.p>
+`;

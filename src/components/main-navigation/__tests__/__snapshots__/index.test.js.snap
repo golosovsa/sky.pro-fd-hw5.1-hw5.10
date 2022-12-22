@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainNavigation /> Snapshot test should render successfully and match snapshot 1`] = `
+<styled.div>
+  permanent
+  <Styled(Component)
+    onClick={[Function]}
+  />
+  <styled.div
+    shown={false}
+  >
+    children
+  </styled.div>
+  <styled.div
+    shown={false}
+  />
+</styled.div>
+`;

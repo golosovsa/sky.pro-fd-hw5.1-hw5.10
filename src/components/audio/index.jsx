@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
-const AudioStyled = styled.audio`
+export const AudioStyled = styled.audio`
   display: none;
 `
 
