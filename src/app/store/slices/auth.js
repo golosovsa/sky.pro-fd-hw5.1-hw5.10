@@ -21,8 +21,10 @@ const storeTokens = (state, { payload }) => {
 const storeErrors = (state, { payload }) => {
   const { data } = payload
   state.errors = []
+  console.log('!!! @@@ !!!', data)
   Object.keys(data).forEach((error) => {
     const messages = data[error]
+    console.log(messages)
     state.errors.push(
       ...messages.map((message) => ({
         error,
