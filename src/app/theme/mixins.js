@@ -1,5 +1,5 @@
 import { getCSSPropertiesList, getCSSVarList } from './funcs'
-import { GLOBAL_FONT } from './global-styles'
+import { GLOBAL_FONT } from './constants'
 
 export const applyThemeCSSVarsMixin = (theme) => {
   const cssVars = getCSSVarList(theme)

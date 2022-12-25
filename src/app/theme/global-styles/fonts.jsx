@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import fontSkyPro from './stratosskyengweb-regular.woff2'
 
-export const GLOBAL_FONT = 'StratosSkyeng'
+import { GLOBAL_FONT } from '../constants'
 
 export const Fonts = createGlobalStyle`
   @font-face {

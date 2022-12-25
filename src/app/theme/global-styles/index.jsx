@@ -1,5 +1,5 @@
 import { Reset } from './reset'
-import { Fonts, GLOBAL_FONT } from './fonts'
+import { Fonts } from './fonts'
 import { DefaultThemeVars } from './default-theme-vars'
 import { ResponsibleLayout } from './layout'
 import { THEME_LIGHT } from '../constants'
@@ -18,5 +18,3 @@ export default function GlobalStyles({ theme, isSwitchTheme }) {
     </>
   )
 }
-
-export { GLOBAL_FONT }
