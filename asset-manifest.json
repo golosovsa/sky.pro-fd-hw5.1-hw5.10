@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/sky.pro-fd-hw5.1-hw5.10/static/js/main.3e99eebc.js",
+    "static/media/stratosskyengweb-regular.woff2": "/sky.pro-fd-hw5.1-hw5.10/static/media/stratosskyengweb-regular.ce93393e831d32412096.woff2",
+    "static/media/one-hundred-dance-hits.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/one-hundred-dance-hits.77102eb7dd990a5683e93c0aefc23fc0.svg",
+    "static/media/indie-charge.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/indie-charge.05c311cf277bd26292d9cf4719322b15.svg",
+    "static/media/playlist-of-the-day.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/playlist-of-the-day.bb4836e9dd078cbeac7234d2e6e38a81.svg",
+    "static/media/login-logo.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/login-logo.d3aafe5ba5fe723d1e07250e611a1149.svg",
+    "static/media/main-logo.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/main-logo.68bce0b971243515b003fd77b668cb5b.svg",
+    "static/media/theme-light.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/theme-light.6dbf3b8c7b05bc275db54b08f2637795.svg",
+    "index.html": "/sky.pro-fd-hw5.1-hw5.10/index.html",
+    "static/media/shuffle.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/shuffle.fa2a86e8498e6e4fbfc9b8b9ad61e21b.svg",
+    "static/media/theme-dark.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/theme-dark.252347df26e2d5ec9591c696115c6ef8.svg",
+    "static/media/mute.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/mute.40e02f9193ef0e65ea155f89f0740257.svg",
+    "static/media/repeat.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/repeat.b7f31046200b551b08bbd1ab94f77a44.svg",
+    "static/media/broken-heart.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/broken-heart.39de71179769d83d8a6c199d3e8b5937.svg",
+    "static/media/heart.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/heart.74933641eadbc283bc04582366a63c73.svg",
+    "static/media/search.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/search.fd02896f21240ec4b13ad4cd9d31fabf.svg",
+    "static/media/track.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/track.b484a33d8d2dbb45abf6ee82a5d6498a.svg",
+    "static/media/burger.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/burger.272f41428f3129f762bd9044f2a8b697.svg",
+    "static/media/clock.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/clock.dcec202f103f6fe1ed9bb167d3b63e00.svg",
+    "static/media/next.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/next.0b597396f38acf56a744823e699c7376.svg",
+    "static/media/prev.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/prev.02906f5017c456f7a479b0d6daa6d78e.svg",
+    "static/media/play.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/play.f724c9850a1d24ffb621fc22a97591f3.svg",
+    "static/media/stop.svg": "/sky.pro-fd-hw5.1-hw5.10/static/media/stop.dbd747a5caec2024ea8cc0d59993521e.svg",
+    "main.3e99eebc.js.map": "/sky.pro-fd-hw5.1-hw5.10/static/js/main.3e99eebc.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3e99eebc.js"
+  ]
+}
