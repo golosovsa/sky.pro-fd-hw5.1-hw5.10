@@ -1,5 +1,6 @@
 {
   "name": "sky.pro-fd-hw5.1-hw5.10",
+  "homepage": "https://golosovsa.github.io/sky.pro-fd-hw5.1-hw5.10",
   "version": "0.1.0",
   "private": true,
   "jest": {
@@ -10,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
     "async-mutex": "^0.4.0",
+    "gh-pages": "^4.0.0",
     "jest-styled-components": "^7.1.1",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
@@ -25,6 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "git-build": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint  src/ --ext .js --ext .jsx",
