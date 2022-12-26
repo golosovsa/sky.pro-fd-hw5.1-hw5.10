@@ -49,8 +49,28 @@ export function withProviders(store) {
 }
 
 export const setupApiStore = (api, extraReducers, withoutListeners) => {
-  const getStore = () =>
-    configureStore({
+  const getStore = () => {
+    if (Array.isArray(api)) {
+      const combinedReducesrs = api.reduce(
+        (acc, cur) => ({
+          ...acc,
+          [cur.reducerPath]: cur.reducer
+        }),
+        {}
+      )
+      const combinedMiddlewares = api.map((item) => item.middleware)
+      return configureStore({
+        reducer: {
+          theme: themeReducer,
+          auth: authReducer,
+          ...combinedReducesrs,
+          ...extraReducers
+        },
+        middleware: (gdm) =>
+          gdm({ serializableCheck: false, immutableCheck: false }).concat(combinedMiddlewares)
+      })
+    }
+    return configureStore({
       reducer: {
         theme: themeReducer,
         auth: authReducer,
@@ -60,6 +80,7 @@ export const setupApiStore = (api, extraReducers, withoutListeners) => {
       middleware: (gdm) =>
         gdm({ serializableCheck: false, immutableCheck: false }).concat(api.middleware)
     })
+  }
 
   const initialStore = getStore()
   const refObj = {
@@ -87,7 +108,11 @@ export const setupApiStore = (api, extraReducers, withoutListeners) => {
       cleanupListeners()
     }
 
-    refObj.store.dispatch(api.util.resetApiState())
+    if (Array.isArray(api)) {
+      api.forEach((item) => refObj.store.dispatch(item.util.resetApiState()))
+    } else {
+      refObj.store.dispatch(api.util.resetApiState())
+    }
   })
 
   return refObj

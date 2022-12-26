@@ -31,13 +31,11 @@ describe('error feature', () => {
   })
 
   it('should be filled', async () => {
-    const { debug } = render(<ErrorFeatureWrapped />, {
+    render(<ErrorFeatureWrapped />, {
       wrapper: storeRef.wrapper
     })
 
     expect(await screen.findByText(/isError: true/i)).not.toBeNull()
     expect(screen.getAllByRole(/.+/i, { hidden: true }).length).toEqual(3)
-
-    debug()
   })
 })
